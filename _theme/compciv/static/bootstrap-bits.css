@@ -1,0 +1,10 @@
+.rst-content blockquote {
+  padding: .5em 1em;
+  margin-bottom: 1em;
+  border-left: .25em solid #e0e0e1;
+  background-color: #eceeef;
+}
+
+.rst-content blockquote {
+  margin: 0 0 1em;
+}
