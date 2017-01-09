@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Guide to Computational Methods in the Civic Sphere'
+project = 'Computational Methods in the Civic Sphere, Winter 2017'
 copyright = '2017, Dan Nguyen'
 author = 'Dan Nguyen'
 
@@ -135,7 +135,7 @@ html_theme_path = ["_theme", sphinx_rtd_theme.get_html_theme_path()]
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-#html_title = 'Guide to Computational Methods in the Civic Sphere v0.0.1'
+#html_title = 'Computational Methods in the Civic Sphere v0.0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -217,7 +217,7 @@ html_show_sourcelink = False
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GuidetoComputationalMethodsintheCivicSpheredoc'
+htmlhelp_basename = 'ComputationalMethodsintheCivicSphere2017doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -239,7 +239,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GuidetoComputationalMethodsintheCivicSphere.tex', 'Guide to Computational Methods in the Civic Sphere Documentation',
+    (master_doc, 'ComputationalMethodsintheCivicSphere2017.tex',
+        'Computational Methods in the Civic Sphere 2017 Documentation',
      'Dan Nguyen', 'manual'),
 ]
 
