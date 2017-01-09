@@ -1,0 +1,41 @@
+*********************************
+Day 1: Tuesday, January 10, 2017
+*********************************
+
+
+
+
+Readings
+--------
+
+Check out the fake news: :doc:`/readings/fake-news`
+
+
+
+Logistics
+---------
+
+Atom Text Editor
+^^^^^^^^^^^^^^^^
+
+- Install the Atom Text Editor
+- Practice regexes
+- Do a find-across the entire project
+- Practice keyboarding
+
+Google Chrome
+^^^^^^^^^^^^^
+
+- Install Google Chrome if you haven't already
+- In Google Chrome, create a new user profile that is different from your default. `Share Chrome with others or add a profile<https://support.google.com/chrome/answer/2364824?co=GENIE.Platform%3DDesktop&hl=en>`
+- In this new user profile, sign into your university webmail, i.e. `https://webmail.stanford.edu`
+- In this new user profile, install the `Secure Shell plugin<https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en>`
+- Practice keyboarding
+
+
+Homework
+--------
+
+- Do some regexes
+
+

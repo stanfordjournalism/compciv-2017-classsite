@@ -1,11 +1,9 @@
 
-<!--
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   regular-expressions/index
+   syllabus/agendas/2017-01-10
 
- -->
 
 .. toctree::
    syllabus/index
