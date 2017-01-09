@@ -19,3 +19,56 @@ Books
 .. _From Python to Numpy: http://www.labri.fr/perso/nrougier/from-python-to-numpy/
 
 .. _Automate the Boring Stuff with Python: https://automatetheboringstuff.com/
+
+
+
+Classes
+=======
+
+
+
+Tutorials
+=========
+
+- `RegexOne <https://regexone.com/>`_ - the best interactive tutorial I've seen on regular expressions. No other guide or tutorial tackles each part of the regex concept so concisely and conveniently.
+
+
+
+
+Data
+====
+
+Repositories and collections
+============================
+
+Interesting sets
+================
+
+
+
+APIs
+====
+
+
+Journalism
+==========
+
+News Applications
+-----------------
+
+
+Visualizations
+--------------
+
+- Washington Post, 2016 https://www.washingtonpost.com/graphics/national/2016-in-graphics/
+
+
+Investigations
+--------------
+
+How-to
+------
+
+
+
+

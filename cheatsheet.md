@@ -1,4 +1,12 @@
+# aws
 
+
+```sh
+# push to s3
+cd  _build/html \
+  && aws s3 --profile dun sync . s3://compciv2017.s3.databa.es \
+  && cd ../..
+```
 
 # wgets
 
