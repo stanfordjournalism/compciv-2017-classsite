@@ -47,8 +47,8 @@ This was a fake story from a fake site. But it was effective because:
 
 
 
-Fake, but will fool the biased
-------------------------------
+Will fool some people
+---------------------
 
 
 
@@ -60,6 +60,18 @@ Fake, but will fool the biased
         Finally the truth comes out! #CrookedHillary https://t.co/z6Xm6ZcCoX
 
         — Eric Trump (@EricTrump) October 12, 2016
+
+
+.. rubric:: April Fool's Day
+
+- https://www.washingtonpost.com/news/wonk/wp/2016/03/31/pfizer-vows-to-stop-raising-the-list-prices-of-its-drugs/
+
+
+        The press release was circulated using an email address that appeared to belong to a real Pfizer spokesman, but used the domain pfizerinternational.com, a fake website that closely mimics Pfizer’s. That website, which also hosted the press release, has since been taken down. A Post reporter called the false phone number provided for the spokesman before the story was published and heard a message saying the company would not be answering questions about the press release and left a voicemail.
+
+
+
+- http://fortune.com/2016/03/31/pfizer-drug-prices-april-fools/
 
 
 Fake, but will fool most
