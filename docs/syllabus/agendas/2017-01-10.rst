@@ -1,0 +1,98 @@
+*********************************
+Day 1: Tuesday, January 10, 2017
+*********************************
+
+
+.. contents:: Table of Contents
+   :depth: 6
+
+
+Introduction to COMM 213
+========================
+
+
+What is journalism?
+===================
+
+Read a story from the Daily
+---------------------------
+
+
+What are algorithms?
+====================
+
+- Stanford admissions
+- Google search rankings
+- The Vietnam War
+
+
+What is programming?
+====================
+
+Everything is Text
+==================
+
+
+        Parsing is difficult:
+
+            http://regexr.com/3f1ck
+
+            :regexp:`kiss`
+
+
+            :regexp:`\[[^\]]+kiss.+?[^\]]+`
+
+
+
+Lab practicum
+=============
+
+- Log on to the lab computers
+- Regular expressions
+- The Atom Text Editor
+- What's a tab key?
+
+
+For next class
+==============
+
+
+Readings
+--------
+
+
+:doc:`/guide/readings/fake-news-overview`
+
+
+Homework
+========
+
+
+- Become "skilled" in regular expressions
+- :doc:`/syllabus/assignments/homework/hello-world-email`
+
+
+
+
+
+
+
+.. Logistics
+.. ---------
+
+.. Atom Text Editor
+.. ----------------
+
+.. - Install the Atom Text Editor
+.. - Practice regexes
+.. - Do a find-across the entire project
+.. - Practice keyboarding
+
+.. Google Chrome
+.. -------------
+
+.. - Install Google Chrome if you haven't already
+.. - In Google Chrome, create a new user profile that is different from your default. `Share Chrome with others or add a profile <https://support.google.com/chrome/answer/2364824?co=GENIE.Platform%3DDesktop&hl=en>`
+.. - In this new user profile, sign into your university webmail, i.e. `https://webmail.stanford.edu`
+.. - In this new user profile, install the `Secure Shell plugin<https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en>`
+.. - Practice keyboarding

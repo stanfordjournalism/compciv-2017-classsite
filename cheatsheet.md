@@ -32,6 +32,23 @@ wget \
 
 http://www.sphinx-doc.org/en/1.5.1/markup/inline.html
 
+## Toc
+
+http://www.sphinx-doc.org/en/1.5.1/markup/toctree.html
+
+.. toctree::
+    :caption: Table of Contents
+    :name: mastertoc
+    :maxdepth: 2
+    :numbered:
+    :titlesonly:
+    :glob:
+    :hidden:
+
+    intro.rst
+    chapter1.rst
+    chapter2.rst
+
 ## documents
 
     :doc:`/readings/fake-news`
@@ -51,3 +68,15 @@ http://www.sphinx-doc.org/en/1.5.1/markup/code.html
 .. literalinclude:: example.py
    :lines: 1-10
 
+
+
+
+    .. epigraph::
+      
+        Hello world
+
+        -- Brian
+
+
+
+.. include:: syllabus/tech-stack.rst.inc

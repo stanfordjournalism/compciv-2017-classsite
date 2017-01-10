@@ -8,7 +8,6 @@ Starter
 
 - How to negate character classes.
 - The importance of the backslash
--
 
 
 Checklist
@@ -55,8 +54,8 @@ Checklist
 
 
 
-Interactive learning
-====================
+External learning resources
+===========================
 
 
 https://alf.nu/RegexGolf

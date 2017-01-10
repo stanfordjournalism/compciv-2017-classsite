@@ -1,0 +1,10 @@
+*********
+Exercises
+*********
+
+
+
+.. toctree::
+    :glob:
+
+    exercises/**/*
