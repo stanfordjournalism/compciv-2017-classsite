@@ -1,3 +1,37 @@
-**********************************
-Day 4: Thursday, January 19, 2017
-**********************************
+**********************************************************
+Day 4: Thursday, January 19, 2017 - Introduction to Python
+**********************************************************
+
+
+Understanding the Python shell and command-line interpretation
+==============================================================
+
+
+Variables
+=========
+
+A fundamental programming concept we've ignored through the command-line lessons.
+
+
+Functions
+=========
+
+
+
+Function scope and design
+-------------------------
+
+
+
+Play with awscli
+================
+
+simple-notification-service
+---------------------------
+
+(One of the main reasons I looked into AWS in the first place)
+
+
+rekognize
+---------
+

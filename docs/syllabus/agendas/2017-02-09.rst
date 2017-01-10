@@ -1,3 +1,13 @@
-**********************************
-Day 10: Thursday, February 9, 2017
-**********************************
+***************************************************
+Day 10: Thursday, February 9, 2017 - Error handling
+***************************************************
+
+Web development, even scraping, necessitates more awareness of error handling.
+
+
+The difference between an exception and an inconvenience
+========================================================
+
+
+(more) Advanced debugging in Python
+===================================

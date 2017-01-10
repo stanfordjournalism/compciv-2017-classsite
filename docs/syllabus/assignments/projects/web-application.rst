@@ -2,9 +2,12 @@
 Web Application
 ***************
 
-Build a Flask web app that creates both a broad view of data, and a user-specific view of that data. This is basically like building a bot or data visualization tool, except using the Web and HTTP as the input device.
+Just because this is a "data" class, don't let that stop you from producing "traditional" work that is powered by computational skill. That said, most students enjoy the feeling of building something in "the cloud", despite the additional complexity in engineering.
 
-Partners allowed, but if you partner up, you'll be required to create a project plan showing how the work was divvied up.
+Even though this projecgt involves building a website, it's not much different than building a bot, and the focus isn't on assessing your web-development skills. Instead, see this as producing a **story**. The interactive interface may be attract a wider audience, but treat this as having the same journalistic weight of any published story, and with that, the weight of being mindful to truth and ethics.
+
+
+Partners are allowed, but if you partner up, you'll be required to create a project plan showing how the work was divvied up.
 
 
 Rubric

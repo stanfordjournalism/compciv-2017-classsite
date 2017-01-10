@@ -1,3 +1,41 @@
-**********************************
-Day 6: Thursday, January 26, 2017
-**********************************
+************************************************************
+Day 6: Thursday, January 26, 2017 - Data structures and APIs
+************************************************************
+
+Lists and ranges (continuation)
+===============================
+
+Dicts
+=====
+
+
+
+JSON (and data serialization in general)
+========================================
+
+
+
+
+
+Why API?
+========
+
+Not all companies see benefit in making their systems accessible to outside programming.
+
+
+
+`Engineer builds machine to swipe right on Tinder non-stop
+ <http://www.dailydot.com/debug/engineer-tinder-auto-swipe-machine/>`
+
+
+.. raw:: html
+
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/Qgnxb-O-CBQ?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+Read the documentation
+======================
+
+APIs are designed (usually) for humans. Pick an API with good documentation, start thinking how we might tie it together.

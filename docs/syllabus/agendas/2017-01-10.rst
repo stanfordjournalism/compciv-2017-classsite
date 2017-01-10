@@ -1,19 +1,26 @@
-*********************************
-Day 1: Tuesday, January 10, 2017
-*********************************
+**************************************************
+Day 1: Tuesday, January 10, 2017 - Text Adventures
+**************************************************
 
 
 .. contents:: Table of Contents
    :depth: 6
 
 
-Introduction to COMM 113/213
-============================
+Our short and brutal journey in computation
+===========================================
 
-Hello, my name is Dan Nguyen.
+I have a few thoughts on the unique difficulties inherent in mixing journalism and computation.
 
-Today is a day to get acquainted with the concepts of computation and journalism. How to combine them will be something we struggle with for the entire quarter.
+But Tufte's tweet sums up my mindset:
 
+.. raw:: html
+
+    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">When they say it&#39;s about the journey, you can be certain that you&#39;re not going to get very far.</p>&mdash; Edward Tufte (@EdwardTufte) <a href="https://twitter.com/EdwardTufte/status/713034169870327812">March 24, 2016</a></blockquote>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+Our "journeys" will be short, at least the technical concepts. The level of programming is short and sweet, and "brute force" is good enough, because the bottleneck in getting thigns done is not a technical one. When this class becomes frustrating, it's because the work of journalism constantly runs itself into the hard problems of computer science.
 
 
 
@@ -47,15 +54,22 @@ What is a story?
 ================
 
 - What makes a story "important"?
-- How does a reporter know what is true. How does a reporter know what is false?
+- How does a reporter know what is true and worth pursuing?
+- How do award-winning journalists find their stories?
 
 
 What are algorithms?
 ====================
 
 - Stanford admissions
-- Google search rankings
-- The Vietnam War
+
+    - `FAQ <http://admission.stanford.edu/site/faq/index.html>`_
+    - `Our Selection Process <http://admission.stanford.edu/basics/selection/profile.html>`_
+    - `Common Data Set 2015-2016 <http://ucomm.stanford.edu/cds/2015>`_
+    - `Common Data Set 1998-1999 <http://ucomm.stanford.edu/cds/cds_1998>`_
+    - `I Saw What Stanford Admissions Officers Said About Me <https://cathincollege.com/2015/04/08/i-saw-what-stanford-admissions-officers-said-about-me/>`_
+
+- :doc:`/guide/readings/algorithms/google-gnomes`
 
 
 
@@ -108,7 +122,9 @@ With a human-readable label and a bit of URL-safe encoding, e.g. "Palace+of+Vers
 
 And that URL resolves to this image:
 
-.. image:: https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Palace+of+Versailles+France
+.. raw::html
+
+    <img src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Palace+of+Versailles+France">
 
 
 Even as we won't have the time to cover the interesting theory behind methods like computer vision, we have plenty of ways to access and leverage that functionality. Amazon's new Rekognition API doesn't just detect faces, but returns a huge JSON data object that we can handle in our programs just like any other text string:
@@ -123,6 +139,13 @@ Even as we won't have the time to cover the interesting theory behind methods li
 
 `Test image via Flickr/White House <https://www.flickr.com/photos/whitehouse/8191317327/>`_
 
+
+
+On Thursday, we dive into the OS X command line. Even in an all-text interface, we have easy ways of making audio.
+
+.. code-block:: console
+
+    $ say what
 
 
 
@@ -142,7 +165,17 @@ Readings
 --------
 
 
+Here's a small collection of articles, both past and present, about fake news and other hoaxes:
+
 :doc:`/guide/readings/fake-news-overview`
+
+Pick a couple articles to read, just to get a better sense of the controversy. I personally like these two:
+
+- `Inside a Fake News Sausage Factory: ‘This Is All About Income’ <http://www.nytimes.com/2016/11/25/world/europe/fake-news-donald-trump-hillary-clinton-georgia.html>`_
+
+- `The Agency <http://www.nytimes.com/2015/06/07/magazine/the-agency.html>`_
+
+
 
 
 Homework
@@ -156,6 +189,60 @@ Homework
 
 
 
+
+Install Atom Text Editor
+========================
+
+.. note:: It's OK
+
+    The following section talks about installing software. Try to get it done if you can, because that gives me extra lead time to help you if there is an issue. There's no deadline (yet). I'm purposefully staggering the pace at which we install or try out things, rather than wait till when we need them to get a bad surprise.
+
+
+In the next few weeks, we'll be doing more work from our own computers rather than the McClatchy Lab. The Atom text editor is not only free but well-supported and popular among developers. As we write more complex scripts, you'll want to be doing this from your own computer.
+
+So try to install the Atom text editor on your own machine by Thursday, so you can begin writing scripts on your own.
+
+`Atom.io - A hackable text editor for the 21st century <https://atom.io/>`_
+
+.. note::
+
+
+    Using Atom is not mandatory. I assume if you're using a different editor, like `Visual Studio Code <https://code.visualstudio.com/>` or `Sublime Text <http://www.sublimetext.com/>`_ (my favorite), that you know what you're doing.
+
+
+Install Google Chrome and Secure Shell
+======================================
+
+Browser development tools are critical to understanding web-development and web-scraping. Chrome has great tools, and more importantly, I know them well and can provide consistent advice.
+
+If you haven't already, you can download Chrome here: `<https://www.google.com/chrome/browser/desktop/>`_
+
+However, you *don't* have to make Chrome your main browser. In fact, there's no reason why you should let another browser/company hold on to your credentials.
+
+Installing a new user profile on Chrome
+---------------------------------------
+
+What if you already use Chrome as your default browser? Then follow these instructions to create a **new user profile**: `Chrome Help: Add a new user profile <https://support.google.com/chrome/answer/2364824?co=GENIE.Platform%3DDesktop&hl=en-GB&oco=0>`_
+
+
+For all intents and purposes, it's like adding a new user to your computer in that their settings, passwords, plugins, etc. won't affect *your* Chrome profile. Having a separate profile reduces the risk, for example, that you run Twitter bot code from this class on your "real" profile. It also helps with web development, so that plugins from your personal account, such as ad blockers, don't interfere with this new account.
+
+
+Get a glaring new theme
+^^^^^^^^^^^^^^^^^^^^^^^
+
+You can run multiple Chrome windows at the same time for multiple users. It's very easy to get confused, so I recommend going to the `Chrome themes store <https://chrome.google.com/webstore/category/themes>`_ and picking a color scheme that is obviously different from your normal one.
+
+
+
+
+
+Install the Secure Shell plugin
+-------------------------------
+
+This step is mostly for Windows users who don't have a great way to connect to remote computers in the way that OS X users have Terminal. It's entirely optional, but if you're on Windows, you might find it easier to use than the usual Windows SSH client.
+
+The `Secure Shell plugin can be downloaded from the Chrome store <https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en>`_
 
 
 .. Logistics

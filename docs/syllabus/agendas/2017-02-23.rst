@@ -1,3 +1,8 @@
-***********************************
-Day 14: Thursday, February 23, 2017
-***********************************
+*********************************************************
+Day 14: Thursday, February 23, 2017 - Geospatial concepts
+*********************************************************
+
+Note: highly dependent on state of geopandas and condas by this time...
+
+
+

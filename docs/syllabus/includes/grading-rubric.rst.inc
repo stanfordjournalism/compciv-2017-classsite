@@ -1,7 +1,3 @@
-Academic Expectations and Evaluation
-====================================
-
-
 
 Grading policy
 ==============

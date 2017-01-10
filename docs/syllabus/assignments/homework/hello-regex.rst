@@ -7,11 +7,14 @@ A variety of regular expression exercises that are probably way too hard for you
 
 .. note::
 
+    This assignment will be delayed. or, we'll work on it in class. However, please complete the overview lesson and try some of the practice resources:
 
-    Lesson: :doc:`/guide/topics/regular-expressions/regex-early-overview`
+    Overview: :doc:`/guide/topics/regular-expressions/regex-early-overview`
+
+    Then look at the exercises and see if you can think them through, if not complete them on your own. What we cover on Thursday will make a lot more sense if you have even a passing familiarity.
 
 
-    Practice: :doc:`/guide/topics/regular-expressions/regex-early-overview`
+
 
 
 Rubric

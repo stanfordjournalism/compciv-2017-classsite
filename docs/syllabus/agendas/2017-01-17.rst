@@ -1,3 +1,25 @@
-*********************************
-Day 3: Tuesday, January 17, 2017
-*********************************
+*******************************************
+Day 3: Tuesday, January 17, 2017 - The Pipe
+*******************************************
+
+
+Connecting programs through text
+================================
+
+Big programs are just small programs neatly tied together. Even when we're not at the *nix command line, keeping your functions and scripts focused is key to creating
+
+
+ack and other grep-likes
+========================
+
+
+The csvkit suite of tools
+=========================
+
+No more parsing structured text through regular expressions.
+
+
+Debugging the command-line
+==========================
+
+The fact that it can be so hard to figure how a CLI system is failing is the main reason we go into Python. Still, if you can untangle Unix commands, Python will feel much easier.

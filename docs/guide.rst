@@ -13,3 +13,4 @@ Guide
 
 
 
+   /guide/topics/end-user-software/atom/how-to-use-regex-atom

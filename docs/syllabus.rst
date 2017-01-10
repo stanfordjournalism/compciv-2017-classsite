@@ -3,6 +3,8 @@ Syllabus
 ********
 
 
+Methodology and Philosophy
+==========================
 
 
 

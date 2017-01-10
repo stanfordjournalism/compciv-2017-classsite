@@ -1,3 +1,35 @@
-*********************************
-Day 5: Tuesday, January 24, 2017
-*********************************
+*******************************************************************
+Day 5: Tuesday, January 24, 2017 - Python loops, modules, and I/O
+*******************************************************************
+
+
+The for-loop
+============
+
+The most important and useful thing we'll learn. The foundation of automation.
+
+Lists and collections
+=====================
+
+
+File reading/writing
+====================
+
+A few lessons in how reading and writing files seems more complicated than it should be.
+
+
+
+Requests - HTTP for Humans
+==========================
+
+
+re - Python's own regex engine
+==============================
+
+
+argparse - slow introduction into command-line interfaces
+=========================================================
+
+
+Python visualization: either matplotlib or agate
+================================================

@@ -1,3 +1,14 @@
-***********************************
-Day 12: Thursday, February 16, 2017
-***********************************
+********************************************************
+Day 12: Thursday, February 16, 2017 - Language and media
+********************************************************
+
+
+Understanding language through scaPy
+====================================
+
+
+
+Working with moviepy and PIL
+============================
+
+What does automation add to art?

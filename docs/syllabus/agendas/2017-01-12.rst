@@ -1,9 +1,49 @@
-*********************************
-Day 2: Thursday, January 12, 2017
-*********************************
+****************************************************
+Day 2: Thursday, January 12, 2017 - The Command Line
+****************************************************
+
+Why would we ever give up our nice point-and-click OS for a 1970s interface?
 
 
-What is the Unix Philosophy?
-----------------------------
+grep
+====
+
+Benford's Law
+-------------
+
+Just a short detour into a statistical observation. Math is fun when tools make it easy.
 
 
+Do one thing and do it well
+===========================
+
+
+.. raw:: html
+
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/tc4ROCJYbm0?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+Why youtube-dl?
+===============
+
+
+
+Why curl?
+=========
+
+
+`How curl Became Like This`_
+
+.. _How curl Became Like This: https://curl.haxx.se/docs/history.html
+
+
+
+.. raw:: html
+
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/ZOUQltl-KQQ?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+SSHing into cardinal.stanford.edu
+=================================
+
+(try mutt?)

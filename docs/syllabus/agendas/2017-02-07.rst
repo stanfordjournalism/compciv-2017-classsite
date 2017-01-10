@@ -1,3 +1,16 @@
-*********************************
-Day 9: Tuesday, February 7, 2017
-*********************************
+*******************************************************************
+Day 9: Tuesday, February 7, 2017 - Web scraping and the dev console
+*******************************************************************
+
+HTML and CSS (very short) crash course
+======================================
+
+
+lxml and cssselect
+==================
+
+
+Flask for fun
+=============
+
+Set up our own webserver, practice scraping it, preparing for web app work.

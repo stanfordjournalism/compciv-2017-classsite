@@ -1,3 +1,14 @@
-**********************************
-Day 15: Tuesday, February 28, 2017
-**********************************
+******************************************************
+Day 15: Tuesday, February 28, 2017 - Automation design
+******************************************************
+
+
+What makes a bot?
+=================
+
+
+
+Tracking state
+==============
+
+Not sure how we're going to do this if we've been avoiding OOP until now...

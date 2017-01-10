@@ -1,3 +1,15 @@
-**********************************
-Day 13: Tuesday, February 21, 2017
-**********************************
+***************************************************
+Day 13: Tuesday, February 21, 2017 - News applications (or guest speaker)
+***************************************************
+
+
+
+News applications and investigative journalism
+==============================================
+
+
+Application design with Flask
+=============================
+
+Thinking about routes
+=====================

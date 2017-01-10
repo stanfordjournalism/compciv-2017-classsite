@@ -1,3 +1,26 @@
-**********************************
-Day 8: Thursday, February 2, 2017
-**********************************
+************************************************************
+Day 8: Thursday, February 2, 2017 - Cloud computing with EC2
+************************************************************
+
+
+Shell redux
+===========
+
+Now everyone is on the same playing field.
+
+
+
+Scheduling and crontab
+======================
+
+
+AWS boto for Python
+===================
+
+
+Github
+======
+
+(if we haven't used it already)
+
+Remote computing means it's harder to keep things synced. Git and Github handle the monotony of that work, with a small price in overhead.

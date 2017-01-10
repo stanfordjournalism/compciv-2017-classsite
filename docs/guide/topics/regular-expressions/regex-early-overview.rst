@@ -154,7 +154,35 @@ If you're new to programming, regular expressions have a double-upside. You get 
 The Google search engine may fix up your typos. But if you want to succeed in programming, then you have to get used to being absolutely *precise* when it comes to telling a computer -- that dumb box that can only think in 1s and 0s -- how to do the real-world things that interest us.
 
 
-I've put together a collection of lessons to help expand what you know regexes can do. There's not much point in cramming in the syntax; we'll be using regexes in virtually every programming environment goign forward.
+
+More practice
+=============
+
+I've put together a collection of lessons to help expand what you know regexes can do. There's not much point in cramming in the syntax; we'll be using regexes in virtually every programming environment going forward.
 
 
+First, if you've just installed the Atom text editor and don't know how to turn finding-by-regex on, here's my short guide: :doc:`/guide/topics/end-user-software/atom/how-to-use-regex-atom`
 
+
+.. rubric:: RegexOne
+
+`RegexOne <https://regexone.com/>`_
+
+
+I think  `RegexOne <https://regexone.com/>`_ is the best interactive regex tutorial I've seen. The lessons are short and sweet, and their sequence logical to follow. You could probably get the first dozen lessons under your belt in 20 minutes. Here are a few highlights:
+
+- `Lesson 1: An introduction and the ABCs <https://regexone.com/lesson/introduction_abcs>`_
+- `Lesson 2: The Dot <https://regexone.com/lesson/wildcards_dot>`_, i.e. how to match **everything**.
+- `Lesson 3: Matching specific characters <https://regexone.com/lesson/matching_characters>`_ (with character sets/brackets)
+- `Lesson 4: Excluding specific characters <https://regexone.com/lesson/excluding_characters>`_
+- `Lesson 5: Character ranges <https://regexone.com/lesson/character_ranges>`_
+- `Lesson 9: All this whitespace <https://regexone.com/lesson/whitespaces>`_
+- `Lesson 10: Starting and ending <https://regexone.com/lesson/line_beginning_end>`_ (anchors)
+
+.. rubric:: Regular-Expressions.info
+
+This `comprehensive resource <http://www.regular-expressions.info/>`_ more than made up for my lack of formal education.
+
+- `Quick start <http://www.regular-expressions.info/quickstart.html>`_
+- `Regular expressions tutorial <http://www.regular-expressions.info/tutorial.html>`_ (check the sidebar!)
+- `And many practical examples <http://www.regular-expressions.info/examples.html>`_, including how to match an email address, dates, and numeric ranges.

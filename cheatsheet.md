@@ -4,8 +4,10 @@
 ```sh
 # push to s3
 cd  _build/html \
-  && aws s3 --profile dun sync . s3://compciv2017.s3.databa.es \
+  && aws s3  sync . s3://2017.compciv.org.s3.databa.es \
   && cd ../..
+
+make html SPHINXOPTS='-E'
 ```
 
 # wgets
