@@ -1,5 +1,5 @@
 
-Abbreviated:
+Abbreviated stack:
 
 - Get acquainted with text and the Atom text editor
 - Learn regular expressions, including capturing groups

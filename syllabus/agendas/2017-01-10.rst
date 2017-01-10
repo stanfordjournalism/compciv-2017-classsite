@@ -14,9 +14,17 @@ Expectations and technicalities
 What is text?
 -------------
 
-The Unix philosophy?
---------------------
+Patterns in everything:
 
+    Learn to read like a computer.
+
+Parsing is difficult:
+
+    http://regexr.com/3f1ck
+
+    :regexp:`kiss`
+    :regexp:`kisses her`
+    :regexp:`\[[^\]]+kiss.+?[^\]]+`
 
 
 What is journalism?

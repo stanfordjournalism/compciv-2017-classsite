@@ -26,3 +26,8 @@ Finding all the stage actions
 
 Finding all actual kissing action
 ---------------------------------
+
+Find consecutive sentences that mention "love"
+----------------------------------------------
+
+
