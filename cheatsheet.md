@@ -35,3 +35,19 @@ http://www.sphinx-doc.org/en/1.5.1/markup/inline.html
 ## documents
 
     :doc:`/readings/fake-news`
+
+
+## code examples
+
+http://www.sphinx-doc.org/en/1.5.1/markup/code.html
+
+#### Emphasize lines:
+
+  :emphasize-lines: 3,5
+
+
+#### Literal includes
+
+.. literalinclude:: example.py
+   :lines: 1-10
+
