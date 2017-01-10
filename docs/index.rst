@@ -5,8 +5,10 @@
 
 
 
+Computational Methods in the Civic Sphere Winter 2017
+=====================================================
 
-.. rubric:: Computational Methods in the Civic Sphere Winter 2017
+
 
 
 .. include:: syllabus/includes/class-info.rst.inc
@@ -18,7 +20,6 @@
 
 
 
-"See full class schedule"
 
 
 
@@ -29,21 +30,9 @@ Misc stuff
    :maxdepth: 1
 
    syllabus
+   syllabus/assignments/index
    guide
    resources/index
-
-
-
-Some stuff
-==========
-
-.. toctree::
-   :maxdepth: 1
-
-   fullindex
-
-
-
 
 
 

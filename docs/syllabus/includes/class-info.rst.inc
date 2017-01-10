@@ -3,7 +3,7 @@
 Homepage
     `2017.compciv.org <https://2017.compciv.org>`_
 
-    Listing: COMM 113/213
+    .. On `ExploreCourses <https://explorecourses.stanford.edu/search?view=catalog&filter-coursestatus-Active=on&page=0&catalog=&academicYear=&q=public+affairs&collapse=>`_
 
 Class
     McClatchy Hall, Building 120, Room 410

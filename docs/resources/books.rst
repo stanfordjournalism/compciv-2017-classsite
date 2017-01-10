@@ -12,14 +12,14 @@ For those of you who want to expand on the Python learned in this class, here ar
 
 
 Automate the Boring Stuff with Python by Al Sweigart
-    `<https://automatetheboringstuff.com/>`
+    `<https://automatetheboringstuff.com/>`_
 
     The only reason why this isn't the required course textbook is because I didn't know how much Python I would incorporate this year. Otherwise, this is easily my favorite all-purpose Python book, both for its content and its mindset.
 
-- `The Hitchhiker's Guide to Python <http://docs.python-guide.org/en/latest/>`_
-    by Kenneth Reitz.
+The Hitchhiker's Guide to Python by Kenneth Reitz
+    `<http://docs.python-guide.org/en/latest/>`_
 
-    This book covers the operational practices and wisdom that you only get out in the field.
+    This book covers the kind of operational know-how and wisdom that comes from working in the field.
 
 
 From Python to Numpy by Nicholas P. Rougier
@@ -27,7 +27,7 @@ From Python to Numpy by Nicholas P. Rougier
     I don't do enough with vector math to use numpy directly, but anything Rougier writes is worth reading.
 
 Python Data Science Handbook by Jake VanderPlas
-    `<https://github.com/jakevdp/PythonDataScienceHandbook>`
+    `<https://github.com/jakevdp/PythonDataScienceHandbook>`_
 
 
 Think Python: How to Think Like a Computer Scientist (2nd Edition) by Allen B. Downey
@@ -38,7 +38,7 @@ Data Science/Visualization
 ==========================
 
 R for Data Science by Garrett Grolemund and Hadley Wickham
-    `<http://r4ds.had.co.nz/>`
+    `<http://r4ds.had.co.nz/>`_
     It's worth R just to read Hadley Wickham's writing. His technical expertise in both data analysis and software engineering apply to all programmers.
 
 
@@ -46,8 +46,8 @@ Web development
 ===============
 
 Interactive Data Visualization for the Web by Scott Murray
-    `<http://chimera.labs.oreilly.com/books/1230000000345>`
-    This book is meant to teach you D3, but its chapters on the fundamentals of web development, including HTML, CSS, and JavaScript, are worth it alone even if you never plan to use D3.
+    `<http://chimera.labs.oreilly.com/books/1230000000345>`_
+    This book is meant to teach D3, but its chapters on the fundamentals of web development, including HTML, CSS, and JavaScript, are worth it alone even if you never plan to use D3.
 
 
 
@@ -60,11 +60,11 @@ Non-fiction
 
 
 But How Do it Know? - The Basic Principles of Computers for Everyone by J. Clark Scott
-    `<https://smile.amazon.com/dp/B00F25LEVC/>`
+    `<https://smile.amazon.com/dp/B00F25LEVC/>`_
     A brilliant book, and one that I wish I had read long before I started out as a computer engineering major. I didn't make it a required textbook for this class because this class isn't about computers. But Scott's writing is so clear and insightful that it is easy to relate to the concepts of computational journalism.
 
 In the Plex by Steven Levy
-    `<http://www.stevenlevy.com/index.php/books/in-the-plex>`
+    `<http://www.stevenlevy.com/index.php/books/in-the-plex>`_
     An entertaining and throughly-detailed account of how Google's algorithms and dominance came to be. I'll most likely make this required textbook next year.
 
 

@@ -26,10 +26,16 @@ Due date:
 Examples
 ========
 
-First News App
+First News App by IRE_NICAR
     A step-by-step buide to publishing a simple news application
 
-    - `Tutorial <http://first-news-app.readthedocs.io/en/latest/>`
-    - `Demonstration of index/broad view <http://ireapps.github.io/first-news-app/build/index.html>`
-    - `Demonstration fo detailed view <http://ireapps.github.io/first-news-app/build/6/>`
+    - `Tutorial <http://first-news-app.readthedocs.io/en/latest/>`_
+    - `Demonstration of index/broad view <http://ireapps.github.io/first-news-app/build/index.html>`_
+    - `Demonstration fo detailed view <http://ireapps.github.io/first-news-app/build/6/>`_
 
+California Inmate Deaths by Reade Levinson
+    A project that has all the requirements, and was mostly hampered by how difficult the data is to work with, as is the case with most incarceration data.
+
+    - `Heroku deployment <https://rocky-headland-64655.herokuapp.com>`_
+    - `Github repo <https://github.com/readelev/final-app>`_
+    - `Reade's eleviator pitch <https://github.com/readelev/final-app/blob/master/READEME.md>`_

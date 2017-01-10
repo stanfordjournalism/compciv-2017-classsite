@@ -7,15 +7,47 @@ Day 1: Tuesday, January 10, 2017
    :depth: 6
 
 
-Introduction to COMM 213
-========================
+Introduction to COMM 113/213
+============================
+
+Hello, my name is Dan Nguyen.
+
+Today is a day to get acquainted with the concepts of computation and journalism. How to combine them will be something we struggle with for the entire quarter.
 
 
-What is journalism?
+
+
+What is a computer?
 ===================
 
-Read a story from the Daily
----------------------------
+I've liked using `Paul Ford's dissertation, "What is Code?" <https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/>`_ to explain the role of programming. The 38,000 word essay is a lot of fun to get through. But its best insight is near the top:
+
+        **You, using a pen and paper, can do anything a computer can; you just can’t do those things billions of times per second. And those billions of tiny operations add up.** They can cause a phone to boop, elevate an elevator, or redirect a missile. That raw speed makes it possible to pull off not one but multiple sleights of hand, card tricks on top of card tricks. Take a bunch of pulses of light reflected from an optical disc, apply some math to unsqueeze them, and copy the resulting pile of expanded impulses into some memory cells—then read from those cells to paint light on the screen. Millions of pulses, 60 times a second. That’s how you make the rubes believe they’re watching a movie.
+
+
+But now I think that Ford isn't reductive *enough*, that his description still makes a computer sound more elaborate than it is.
+
+The fundamental building block of a computer is the **bit**. And no matter how many bits that computer contains, each of those bits is just something that is either on or off.
+
+In his book, "But How Do it Know?", J. Clark Scott explains how the simple bit becomes significant in our world:
+
+
+    A computer bit is still, and will always be, nothing more than a place where there is or is not electricity, but when we, as a society of human beings, use a bit for a certain purpose, we give meaning to the bit.
+
+    When we connect a bit to a red light and hang it over an intersection, and make people study driver’s handbooks before giving them driver’s licenses, we have given meaning to that bit. Red means ‘stop,’ not because the bit is capable of doing anything to a vehicle traveling on the road, but because we as people agree that red means stop, and we, seeing that bit on, will stop our car in order to avoid being hit by a car traveling on the cross street, and we hope that everyone else will do the same so that we may be assured that no one will hit us when it is our turn to cross the intersection.
+
+
+    So there are many things that can be done with a bit. It can indicate true or false, go or stop. **A single yes or no can be a major thing, as in the answer to “Will you marry me?” or an everyday matter such as “Would you like fries with that?”**
+
+    Scott, J Clark (2009-07-04). But How Do It Know? - The Basic Principles of Computers for Everyone (Kindle Locations 524-527). John C Scott. Kindle Edition.
+
+
+
+What is a story?
+================
+
+- What makes a story "important"?
+- How does a reporter know what is true. How does a reporter know what is false?
 
 
 What are algorithms?
@@ -26,21 +58,71 @@ What are algorithms?
 - The Vietnam War
 
 
-What is programming?
-====================
 
-Everything is Text
-==================
+Text is our universal interface
+===============================
+
+Thinking of everything as plaintext will seem like a dumbing-down of computational methods. But only if you
+forget how all the code we write is in plaintext. And so is the vast majority of the data we will ever collect and attempt to understand.
+
+Sticking with text is not a decision made out of nostalgia for a simpler time, but in recognition of the increasing complexity and speed of information.
+
+As Graydon Hoare writes, in his essay `Always Bet on Text`_
+
+     I like me some illustrations, photos, movies and music.
+
+     But text wins by a mile. Text is everything. My thoughts on this are quite absolute: text is the most powerful, useful, effective communication technology ever, period.
+
+     Text is the oldest and most stable communication technology (assuming we treat speech/signing as natural phenomenon -- there are no human societies without it -- whereas textual capability has to be transmitted, taught, acquired) and it's incredibly durable. We can read texts from five thousand years ago, almost the moment they started being produced. It's (literally) "rock solid" -- you can readily inscribe it in granite that will likely outlast the human species.
 
 
-        Parsing is difficult:
+     ...Text can convey ideas with a precisely controlled level of ambiguity and precision, implied context and elaborated content, unmatched by anything else. It is not a coincidence that all of literature and poetry, history and philosophy, mathematics, logic, programming and engineering rely on textual encodings for their ideas.
 
-            http://regexr.com/3f1ck
-
-            :regexp:`kiss`
+     ...So this is my stance on text: always pick text first. As my old boss might have said: always bet on text. If you can use text for something, use it. It will very seldom let you down.
 
 
-            :regexp:`\[[^\]]+kiss.+?[^\]]+`
+.. _Always Bet on Text: http://graydon.livejournal.com/196162.html
+
+
+
+The joy of text
+---------------
+
+In subsequent lessons, we'll see how powerful text can be. Working with plaintext data has been the core of even the most complicated data investigations. And when we work with objects that can't be represented as just plaintext, we still use text to describe those binary blobs.
+
+Webpages, of course, have long been able to incorporate multimedia because text is used to describe the address, the format, and the appearance of multimedia assets. This `universally beloved YouTube experience <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_, for example, is encapsulated with this short text snippet:
+
+
+.. code-block:: html
+
+
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allowfullscreen>
+    </iframe>
+
+
+The `Spotify API uses a bevy of structured plaintext objects <http://www.compciv.org/recipes/data/touring-the-spotify-api/>`_ to represent its vast music and artist collection.
+
+With a human-readable label and a bit of URL-safe encoding, e.g. "Palace+of+Versailles+France", `Google's Maps Street View API delivers us a plaintext Internet address <https://developers.google.com/maps/documentation/streetview/intro>`:
+
+`<https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Palace+of+Versailles+France>`_
+
+And that URL resolves to this image:
+
+.. image:: https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Palace+of+Versailles+France
+
+
+Even as we won't have the time to cover the interesting theory behind methods like computer vision, we have plenty of ways to access and leverage that functionality. Amazon's new Rekognition API doesn't just detect faces, but returns a huge JSON data object that we can handle in our programs just like any other text string:
+
+`<https://console.aws.amazon.com/rekognition/home?region=us-east-1#/face-detection>`_
+
+
+.. image:: images/obama-maroney-rekognized.jpg
+
+
+
+
+`Test image via Flickr/White House <https://www.flickr.com/photos/whitehouse/8191317327/>`_
+
 
 
 
@@ -50,7 +132,6 @@ Lab practicum
 - Log on to the lab computers
 - Regular expressions
 - The Atom Text Editor
-- What's a tab key?
 
 
 For next class
@@ -68,8 +149,8 @@ Homework
 ========
 
 
-- Become "skilled" in regular expressions
 - :doc:`/syllabus/assignments/homework/hello-world-email`
+- :doc:`/syllabus/assignments/homework/hello-regex`
 
 
 

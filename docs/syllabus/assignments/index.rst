@@ -3,27 +3,35 @@ Assignments
 ***********
 
 
+
+
+
 Homework
 ========
 
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
 
-.. csv-table::
-    :header: "Due date", "Assignment"
-    :widths: 30, 70
 
+.. rubric:: Due: 2017-01-12
 
-    2017-01-12,:doc:`homework/hello-world-email`
+.. toctree::
+   :maxdepth: 1
+
+   homework/hello-world-email
+   homework/hello-regex
 
 
 
 Projects
 ========
 
-Like the homework, just longer-form.
+These take up the latter-half of the course. Whereas the homework assignments are meant to be a kind of mechanical practice, projects are more open-ended with you picking a topic or data domain that interests you.
 
 
-- :doc:`projects/scalable-visualization-builder`
-- :doc:`projects/data-janitorial-work`
-- :doc:`projects/remote-bot`
-- :doc:`projects/web-application`
+.. toctree::
+   :maxdepth: 1
+
+   projects/scalable-visualization-builder
+   projects/data-janitorial-work
+   projects/remote-bot
+   projects/web-application

@@ -7,9 +7,9 @@ Guide
 
 
 .. toctree::
-   :maxdepth: 1
-   :glob:
+   :maxdepth: 3
 
+   /guide/topics/regular-expressions/regex-early-overview
 
 
 
