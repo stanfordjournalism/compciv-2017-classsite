@@ -18,11 +18,6 @@ Computational Methods in the Civic Sphere Winter 2017
 
 
 
-
-
-
-
-
 Misc stuff
 ==========
 
@@ -36,4 +31,8 @@ Misc stuff
 
 
 
+Random data...
+++++++++++++++
 
+- List of fruits: :download:`/stash/fruits.txt`
+- Some numbers: :download:`/stash/numbers.txt`

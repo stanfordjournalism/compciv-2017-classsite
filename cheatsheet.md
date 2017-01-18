@@ -4,7 +4,7 @@
 ```sh
 # push to s3
 cd  _build/html \
-  && aws s3  sync . s3://2017.compciv.org.s3.databa.es \
+  && aws s3  sync . s3://2017.compciv.org \
   && cd ../..
 
 make html SPHINXOPTS='-E'

@@ -7,12 +7,18 @@ A variety of regular expression exercises that are probably way too hard for you
 
 .. note::
 
-    This assignment will be delayed. or, we'll work on it in class. However, please complete the overview lesson and try some of the practice resources:
+    To do this assignment, read through the overview:
 
     Overview: :doc:`/guide/topics/regular-expressions/regex-early-overview`
 
-    Then look at the exercises and see if you can think them through, if not complete them on your own. What we cover on Thursday will make a lot more sense if you have even a passing familiarity.
+    Then read the Regular-Expressions.info tutorial, specifically through `capturing groups <http://www.regular-expressions.info/brackets.html>`_
 
+    Capturing groups is about as complicated as you need to get in regex land, for now. You shouldn't have to worry about things like lookaheads for this assignment.
+
+
+.. note::
+
+    There is no one right answer for any of these problems, depending on how you interpret the prompt, and depending on how many assumptions you make. So just try to come up with a pattern that matches *something* for each prompt -- we'll discuss in class why this is such an (annoyingly) difficult assignment.
 
 
 
@@ -21,7 +27,7 @@ Rubric
 ======
 
 Due date:
-    1:00 PM, :doc:`/syllabus/agendas/2017-01-12`
+    1:00 PM, :doc:`/syllabus/agendas/2017-01-17`
 
 .. csv-table::
     :header: "Points", "Metric"
@@ -110,11 +116,8 @@ Doesn't have to be word characters.
 
 
 
-
-
 Regex Exercises 5 to 7 with Trump tweets
 ----------------------------------------
-
 
 
 Download this CSV file of :download:`@realDonaldTrump tweets into your text editor </stash/data/twitter/realdonaldtrump-tweets.csv>`
@@ -169,6 +172,12 @@ The best we can do is think of an admittedly clunky hack: what's another way to 
 
 .. rubric::  9. Capture the month, day, and year of birth for each row.
 
+
+.. note::
+
+   So this is where you want to read up on `capturing groups <http://www.regular-expressions.info/brackets.html>`_, which is one of the more complicated things about regex, at least to *read* about. They're pretty easy to grok once you've seen them in action.
+
+
 Given that the DOB field is in this format:
 
 
@@ -178,12 +187,12 @@ Given that the DOB field is in this format:
 Here's what the pattern *without* capturing groups looks like:
 
 
-:regexp:`\d{2}-\d{2}-\d{4}`
+:regexp:`\\d{2}-\\d{2}-\\d{4}`
 
 
 And here is the answer, with capturing groups for each datapoint:
 
-:regexp:`(\d{2})-(\d{2})-(\d{4})`
+:regexp:`(\\d{2})-(\\d{2})-(\\d{4})`
 
 
 .. rubric::  10. Reformat each date of birth so that they are in `YYYY-MM-DD` format
@@ -212,3 +221,66 @@ With the correct replacement format, this is the result:
     782,17003004,1962-08-03,19817,6683536,
     659,16363012,1949-05-12,307904,6665382,
     829,17005012,1997-06-16,391891,6691363,
+
+
+
+Discussion/Answers
+==================
+
+
+
+.. code-block:: text
+
+    [A-Za-z]{15,}
+    -$
+    \b(right|wrong)[.!?]
+    TRUMP: +.{1,140}$
+    \w+ *me\b
+    \b\d{2}:
+    https?://[\w/.\-]+
+    \d{2}-\d{2}-19[0-4]\d
+    (\d{2})-(\d{2})-(\d{4})
+    $3-$1-$2
+
+
+
+Explanations
+------------
+
+For: 1. All words of 15 letters or more
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If we assume all words consist of letters from the American alphabet, then using a **character range** for all letters from A to Z (uppercase and lowercase) should suffice: :regexp:`[a-Z]{15,}`
+
+However, consider all the valid long words that this pattern would exclude:
+
+
+- Words split by an apostrophe, e.g. ``procrastinator's``
+- Any word containing non-American alphabet letters, such as ``é`` and ``ô``.
+- Compound words, e.g. ``Merry-go-round``
+
+
+For 8. Match every row in which the date of birth was before 1950.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+The first part of th is pattern is straightforward, as we don't care about specific days/months:
+
+
+.. code-block:: text
+
+        \d{2}-\d{2}-
+
+
+But we do care about limiting the years. My proposed answer was to look for the pattern ``19``, followed by the digits ranging from ``0`` to ``4``, followed by any digit:
+
+.. code-block:: text
+
+    19[0-4]\d
+
+
+But some answers didn't assume that 1900 was the lower limit for birth year, and that's a good mindset to have. Yes, in reality, this data covers 90-days of a waitlist in 2016, and no one in America currently is at that age. But, that's kind of an assumption. Also an assumption: that other data in this realm is limited to this present timeframe.
+
+Thsoe assumptions are totally reasonably within the context of the homework. But when programming, we often can't make such assumptions.
+
+

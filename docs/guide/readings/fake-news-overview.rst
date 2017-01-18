@@ -3,11 +3,6 @@ An overview of current and historical fake news
 ***********************************************
 
 
-
-
-
-
-
 Fake news in action
 ===================
 
@@ -47,13 +42,6 @@ Trying to stop fake news
         -- Brooke Borel
 
 
+- `Facebook unveils 'Facebook Journalism Project' <http://money.cnn.com/2017/01/11/media/facebook-journalism-project/index.html?iid=SF_LN>`_
 
 
-
-.. .. rubric Distorted headline from real news story
-
-.. .. image:: images/facebook-lint-real-obama-mom.jpg
-
-
-
-.. http://www.nytimes.com/2011/04/24/magazine/mag-24Obama-t.html

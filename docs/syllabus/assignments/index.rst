@@ -12,13 +12,29 @@ Homework
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
 
 
+.. rubric:: Due: 2017-01-19
+
+.. toctree::
+   :maxdepth: 1
+
+   homework/quake-mags
+
+
+
+.. rubric:: Due: 2017-01-17
+
+.. toctree::
+   :maxdepth: 1
+
+   homework/hello-regex
+
+
 .. rubric:: Due: 2017-01-12
 
 .. toctree::
    :maxdepth: 1
 
    homework/hello-world-email
-   homework/hello-regex
 
 
 

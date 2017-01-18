@@ -1,30 +1,306 @@
-****************************************************
-Day 2: Thursday, January 12, 2017 - The Command Line
-****************************************************
+****************************************************************
+Day 2: Thursday, January 12, 2017 - Introducing the Command Line
+****************************************************************
 
 Why would we ever give up our nice point-and-click OS for a 1970s interface?
 
 
-grep
-====
+Homework
+========
 
-Benford's Law
--------------
+Doesn't require the command-line.
 
-Just a short detour into a statistical observation. Math is fun when tools make it easy.
+- :doc:`/syllabus/assignments/homework/hello-regex`
+
+
+In-class work
+=============
+
+Today we'll be doing work in-class on the iMacs. It's a little difficult (and unfair) to assign a bunch of command-line work until next week, when we will all have the same machine to work on.
+
+The main takeaways for today should be:
+
+- Understanding that the command-line is just an interface to your system, instead of clicking things, you have to memorize a bunch of `commands and their options <http://www.compciv.org/unix-tools/>`_.
+- The command-line is a `REPL <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>`_: it reads your command (upon hitting Enter), executes it, prints the results, and then goes back to waiting for the next command.
+- Keyboard shortcuts are nice. Use the **Up** key at the command-line to cycle through past commands in the history.
+- The **Tab** key is essential. Use **Command-Tab** (**Ctrl-Tab** on Windows) to cycle between open applications, i.e. Chrome and the Terminal window. At the Nix command line, **Tab** serves as **auto-complete**
+- Use ``pwd``, ``whoami``, and ``hostname`` to figure out which computer you're on, and where.
+- How simple each command is. ``cat`` prints out files. ``curl`` just downloads them. They don't make assumptions about where you want to print things, or save files, etc.
+
+Most of the basics we cover in class are reviewed/compiled here. This class isn't heavily focused on the Nix command-line -- i.e. we won't be writing real programs with it -- it's just necessary for moving around computer systems in general, while getting some insight into programmatic concepts.
+
+- :doc:`/guide/topics/command-line/introduction-cli-bash-osx`.
+- :doc:`/guide/topics/command-line/stanford-ssh`
+
+
+Hands-on exercises (which we did not get to)
+============================================
+
+
+
+
+
+Creating directories/moving around
+----------------------------------
+
+Learn how to use ``cd`` to change directories, ``pwd`` to figure out where you are, and ``mkdir`` to make directories: :doc:`/guide/topics/command-line/introduction-cli-bash-osx`
+
+Example:
+
+.. code-block:: shell
+
+    $ pwd
+
+    $ cd /tmp
+
+    $ pwd
+
+    $ mkdir hello
+
+    $ cd hello
+
+    $ pwd
+
+
+Hello world and say
+-------------------
+
+Open up your terminal, use ``cd`` to change the working directory to the Desktop:
+
+.. code-block:: shell
+
+    $ cd ~/Desktop
+
+Start off by using ``echo`` to say "hello world" to **standard output**, i.e., your screen.:
+
+.. code-block:: shell
+
+    $ echo hello world
+
+Now use the OSX-specific ``say`` command:
+
+.. code-block:: shell
+
+    $ say hello world
+
+This is a command that does *not* print to standard output. Use ``man say`` to get a list of commands, and learn how to change voices and save an output file:
+
+
+.. code-block:: shell
+
+    # get a list of voices
+    $ say --voice ?
+
+    # say hello world in Vicki's voice
+    # consider how the arguments are parsed
+    $ say --voice Vicki hello world
+
+
+    # send the voice output to a file named `hello.aiff`
+    $ say -o hello.aiff hello world
+
+
+Using youtube-dl
+----------------
+
+Let's start with something more high-level: getting video files off of the Internet.
+
+`youtube-dl <https://rg3.github.io/youtube-dl/>`_ is a command-line program for downloading videos.
+
+.. note:: note
+
+    youtube-dl is installed on the McClatchy computers. You can try installing it on your own via these `instructions <https://rg3.github.io/youtube-dl/download.html>`_ -- ask me if you need help, we won't be using youtube-dl for actual assignments.
+
+
+Using your web browser, go to a Youtube video page that you'd like to download -- I recommend picking something from `The White House <https://www.youtube.com/user/whitehouse>`_.
+
+Open up your Terminal. Use ``cd`` to change to the Desktop.
+
+.. code-block:: shell
+
+    $ cd ~/Desktop
+
+And then run this command (notice how the files get downloaded to the Desktop):
+
+.. code-block:: shell
+
+    $ youtube-dl https://www.youtube.com/watch?v=dygQrX8FI3Q
+
+
+That should begin the process of downloading a file.
+
+Run ``youtube-dl`` with the ``--help`` flag to get a full list of options.
+
+One useful flag is ``--write-sub``, which will download a subtitle file if it exists.
+
+.. code-block:: shell
+
+    $ youtube-dl --write-sub https://www.youtube.com/watch?v=dygQrX8FI3Q
+
+
+To open the movie file with the OSX-specific application, use ``open``:
+
+    $ open whatevermoviefilenameis
+
+
+
+Using ``>`` to redirect output to a file
+--------------------------------------
+
+Youtube-dl and ``say`` are examples of program that *do not* send things to **standard output**.
+
+``echo``, however, *is*. And if we don't want to just print to the screen, we use ``>`` -- the redirection operator -- to say, "send the arguments/input to a file":
+
+.. code-block:: shell
+
+    $ echo hello world > hello.txt
+
+.. warning:: note
+
+    Like most things in Nix command-line world, these commands are *destructive* and they don't second-guess you. If ``hello.txt`` already exists, the redirection operator will wipe out what existed there before writing to it.
+
+
+Using ``>>`` to redirect and append to a file
+-------------------------------------------
+
+.. code-block:: shell
+
+    $ echo hello world again >> hello.txt
+
+
+
+Using ``cat`` to "concatenate" and print contents of a file
+-----------------------------------------------------------
+
+.. code-block:: shell
+
+    $ cat hello.txt
+
+
+As with ``echo``, we can redirect the output of ``cat`` to a new file:
+
+.. code-block:: shell
+
+    $ cat hello.txt > hello2.txt
+
+``cat`` takes multiple arguments, e.g. multiple files, as needed
+
+.. code-block:: shell
+
+
+    $ cat hello.txt hello2.txt > hellomore.txt
+
+
+Using curl
+----------
+
+Download a webpage from the command-line and print it to screen:
+
+
+.. code-block:: shell
+
+    $ curl http://www.example.com
+
+Download a webpage into a file:
+
+.. code-block:: shell
+
+    $ curl http://www.example.com > somefile.txt
+
+
+
+Healthcare practitioner payments
+--------------------------------
+
+via `ProPublica's Dollars for Docs <https://projects.propublica.org/docdollars/>`_
+
+
+Download this zip file containing PDFs of drug companies payments:
+
+`http://data.danwin.com/pharma-hcps.zip <http://data.danwin.com/pharma-hcps.zip>`_
+
+.. code-block:: shell
+
+    $ curl http://data.danwin.com/pharma-hcps.zip > ph.zip
+
+
+Unzip it with the ``unzip`` command:
+
+.. code-block:: shell
+
+    $ unzip ph.zip
+
+
+It will create a new directory named ``pharma-hcps``. We want to navigate to the sub-directory, ``pharma-hcps/txts`` (the ``pdfs`` directory contains the original files, which were converted using the Poppler command-line tool).
+
+
+.. code-block:: shell
+
+    $ cd pharma-hcps/txts
+
+
+Then use ``ack`` to look for patterns:
+
+
+.. code-block:: code
+
+    $ ack 'BOSTON' eli-lilly-2009.txt
+
+    $ ack 'BOSTON' *.txt
+
+    $ ack '\d{3},\d{3}' eli-lilly-2009.txt
+
 
 
 Do one thing and do it well
 ===========================
 
+The `Unix Philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`_:
+
+    This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
+
+
+Brian Kernighan explains how to "glue" together Unix programs (via AT&T archives):
+
 
 .. raw:: html
 
-    <iframe width="853" height="480" src="https://www.youtube.com/embed/tc4ROCJYbm0?rel=0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="660" height="380" src="https://www.youtube.com/embed/tc4ROCJYbm0?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
-Why youtube-dl?
-===============
+grep
+====
+
+One of the most well-known Unix utilities, **grep** is as much a verb as it is a noun, e.g. "grep those files".
+
+While you can use ``grep`` to look for literal word patterns, like your typical **Find** command in a word-processor.
+
+
+An excerpt of its ``man`` description in `6th edition of Unix <https://medium.com/@rualthanzauva/grep-was-a-private-command-of-mine-for-quite-a-while-before-i-made-it-public-ken-thompson-a40e24a5ef48#.mlkx7wnv2>`_:
+
+.. code-block:: text
+
+    NAME
+     grep — search a file for a pattern
+
+    DESCRIPTION
+     Grep searches the input files (standard input default) for
+     lines matching the regular expression. Normally, each line
+     found is copied to the standard output. If the -v flag is
+     used, all lines but those matching are printed. If the -c
+     flag is used, only a count of matching lines is printed.
+
+grep-likes: ack and ag
+----------------------
+
+Note that for this class, we'll be using either of these grep-likes:
+
+- `ack <http://beyondgrep.com/>`_ - this is installed on the McClatchy Hall iMacs and will be installed on the Amazon cloud servers.
+- `ag <https://github.com/ggreer/the_silver_searcher>`_ - this is installed on the Stanford Farmshare machines, i.e. ``cardinal.stanford.edu``.
+
+You can try installing them on your own, but the main reason we use them is because the version of ``grep`` installed on OSX is not as fully-featured as we need. Mainly, the difference is that ``ack`` and ``ag`` support the full range of regular expressions we want (commonly referred to as `Perl-compatible regular expressions <https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions>`_)
+
+Otherwise, `the tools share common flags <http://www.compciv.org/unix-tools/#grep>`_, such as ``-o`` for *print matching output* and ``-v`` for *print non-matching lines*.
 
 
 
@@ -32,7 +308,7 @@ Why curl?
 =========
 
 
-`How curl Became Like This`_
+`How curl Became Like This <https://curl.haxx.se/docs/history.html>`_
 
 .. _How curl Became Like This: https://curl.haxx.se/docs/history.html
 
@@ -41,9 +317,3 @@ Why curl?
 .. raw:: html
 
     <iframe width="853" height="480" src="https://www.youtube.com/embed/ZOUQltl-KQQ?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-SSHing into cardinal.stanford.edu
-=================================
-
-(try mutt?)

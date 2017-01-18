@@ -1,10 +1,52 @@
-**********************************************************
-Day 4: Thursday, January 19, 2017 - Introduction to Python
-**********************************************************
+******************************************************
+Day 4: Thursday, January 19, 2017 - Theory of the Pipe
+******************************************************
+
+
+This is the last focused day on command line scripting before we move into the Python programming language -- which, confusingly enough, has its own command line interpreter...why is why it's good to be familiar with the very concept of an "interactive shell".
+
+
+
+
+
+
+How Doug McIlroy, inventor of the Unix pipe, `summarized the Unix philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`_:
+
+    This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
+
+
+
+
+
+
+Why we don't Bash
+=================
+
+We've been executing commands in the Unix way through `Bash, the Bourne Again Shell <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`_. We could have been doing proper programming in Bash, with variables and for loops and if statements, instead of doing it in Python.
+
+There's a lot of reasons why we're using Python. One reason is how Pixar literally wiped out "Toy Story 2" because of a slightly errant Bash command; or, as Mental Floss puts it: `How One Line of Text Nearly Killed 'Toy Story 2' <http://mentalfloss.com/uk/entertainment/27204/how-one-line-of-text-nearly-killed-toy-story-2>`_:
+
+    Writing in his book Creativity Inc, Pixar co-founder Ed Catmull recalled that in the winter of 1998, a year out from the release of Toy Story 2, somebody (he never reveals who in the book) entered the command '/bin/rm -r -f *' on the drives where the film's files were kept.
+
+    The object of said command is to remove everything from a given location, and to remove it quickly. It did its job.
+
+    "First, Woody's hat disappeared. Then his boots. Then he disappeared entirely," recalls Catmull. "Whole sequences—poof!—were deleted from the drive."
+
+    ...The plug was pulled, but not in time—90% of the film was gone, erased "in a matter of seconds."
+
+
+Here's a fun animated recap of that disaster: `How Toy Story 2 Almost Got Deleted: Stories From Pixar Animation <https://www.youtube.com/watch?v=8dhp_20j0Ys>`_.
+
+Every programming language has the power to do creative, and destructive things. For some fun legacy reasons, it's almost always easier to be accidentally destructive in Bash. If even the tech geniuses at Pixar -- or `Valve <https://github.com/ValveSoftware/steam-for-linux/issues/3671>`_, or basically `everyone who has touched Unix <http://www.linuxjournal.com/magazine/hack-and-when-disaster-strikes-attack-rm-command>`_ -- can have a disaster, so can we as students.
+
+
+
 
 
 Understanding the Python shell and command-line interpretation
 ==============================================================
+
+(Might move this to next week)
 
 
 Variables

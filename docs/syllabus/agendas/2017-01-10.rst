@@ -143,7 +143,7 @@ Even as we won't have the time to cover the interesting theory behind methods li
 
 On Thursday, we dive into the OS X command line. Even in an all-text interface, we have easy ways of making audio.
 
-.. code-block:: console
+.. code-block:: shell
 
     $ say what
 
@@ -183,7 +183,6 @@ Homework
 
 
 - :doc:`/syllabus/assignments/homework/hello-world-email`
-- :doc:`/syllabus/assignments/homework/hello-regex`
 
 
 
