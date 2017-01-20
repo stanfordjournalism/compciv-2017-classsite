@@ -8,6 +8,9 @@ An example real-world data wrangling problem that can be solved by chaining toge
 Also, there's some practice with trying to do things from a remote computer, i.e. Stanford Farmshare.
 
 
+.. contents:: :local:
+
+
 Rubric
 ======
 
@@ -42,9 +45,28 @@ Due date:
 
 
 
-.. warning::
 
-   One of the hardest problems may be figuring out how to create a Bash script. Trying to write a simple walkthrough without being pedantic...
+
+
+Delivery format
+===============
+
+Send an email to dun@stanford.edu with the subject:
+
+``compciv-2017::your_sunet_id::quake-mags``
+
+Where ``your_sunet_id`` is your Stanford student ID, all-lowercase.
+
+The **body** of the email should have a single line of text:
+
+    Hello Mutt!
+
+And the email should contain an attachment named ``answers.zip``
+
+And you should use the program **Mutt**, which is described later in this section
+
+
+
 
 
 
@@ -96,7 +118,7 @@ You should produce a script named ``answer.sh`` which, when I run it on my own c
 
 
 How to make a Bash/shell script
--------------------------
+-------------------------------
 
 See further reading here: :doc:`/guide/topics/command-line/abridged-bash`
 
@@ -175,7 +197,7 @@ To send an email that says ``Hello`` in the subject, ``Que?`` in the body, to an
 
 .. code-block:: shell
 
-    $ echo 'Que?' | mutt -s 'Hello' -t YOUR_ID@stanford.edu
+    $ echo 'Que?' | mutt -s 'Hello'  YOUR_ID@stanford.edu
 
 
 To send a file:
@@ -206,6 +228,47 @@ Do NOT do this for this assignment, but if you wanted to send this same email to
         -- person1@email.com person2@email.com
 
 
+
+
+The answer
+==========
+
+.. note:: Note
+
+    In the original description of the problem, the expected output excluded earthquakes of ``0`` magnitude; the example answers here don't filter those out.
+
+
+Many ways to go about this, but here's what I have:
+
+
+.. code-block:: shell
+
+
+    curl http://2017.compciv.org/_downloads/usgs_earthquake_feed_all_month.csv \
+        > quakes.csv
+
+
+    echo 'mag,count'
+    csvcut -c 5 quakes.csv \
+        | ack -o '\d+\.' \
+        | ack -o '\d+'    \
+        | sort | uniq -c \
+        | ack '(\d+)\s+(\d+)' --output '$2,$1'
+
+
+
+
+There are ways to be slicker about it and do it in fewer steps. The following example skips the saving of the data to an intermediary ``quakes.csv`` and just feeds the output of ``curl`` right into ``csvcut``. I also use a lookahead in the regex just to be fancy:
+
+.. code-block:: shell
+
+    echo 'mag,count'
+
+    curl -s http://2017.compciv.org/_downloads/usgs_earthquake_feed_all_month.csv \
+        | csvcut -c 5 \
+        | ack -o '\d+(?=\.)' \
+        | sort | uniq -c \
+        | ack '(\d+)\s+(\d+)' --output '$2,$1'
 
 
 

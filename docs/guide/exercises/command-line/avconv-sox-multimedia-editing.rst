@@ -96,38 +96,13 @@ Case in point, if you're on a system with ``ffmpeg`` installed, slowing down a v
 
 But ``avconv`` won't do that trick. Not going to lie, that's kind of annoying. However, let's roll with it and solve this problem the "Unix way".
 
+The "Unix" way being: break things down into lots of extra steps.
 
 
 
-Same for ffmpeg:
 
-ffmpeg -y -i mymovie.mp4 -ss 00:01:40 -t 1.46 -strict experimental myexcerpt.mp4
-
-
-
-Slowing down the video
-----------------------
-
-
-#
-
-
-ffmpeg -y -i myexcerpt.mp4 -vf 'setpts=2.0*PTS' -strict experimental myslowmo.mp4
-
-avconv -y -i myexcerpt.mp4 -vf 'setpts=2.0*PTS' -strict experimental myslowmo.mp4
-
-
-However, video and audio does not sync up.
-
-
-Slowing down the audio
-----------------------
-
-
-ffmpeg -y -i myexcerpt.mp4 -vf 'setpts=4.0*PTS' -af 'atempo=0.5,atempo=0.5' -strict experimental  myslowmo.mp4
-
-
-
+Extracting separate audio and video tracks
+------------------------------------------
 
 
 http://unix.stackexchange.com/questions/140844/is-there-any-equivalent-to-the-atempo-ffmpeg-audio-filter-but-for-avconv-to-spee
@@ -136,26 +111,15 @@ http://unix.stackexchange.com/questions/140844/is-there-any-equivalent-to-the-at
 Extract the audio and video:
 
 
-avconv -i myexcerpt.mp4 -c copy -map 0:0 myexvideo.mp4
-avconv -i myexcerpt.mp4 -map 0:1 myaudio.wav
+avconv -y -i excerpt.mp4 -map 0:0 ex-video.mp4
+avconv -y -i excerpt.mp4 -map 0:1 ex-audio.wav
 
 
 Slow down the audio with sox:
 
-sox myaudio.wav myslowaudio.wav tempo 0.5
+sox ex-audio.wav slo-audio.wav tempo 0.5
 
 
-
-
-
-
-
-
-
-Need to slow audio:
-
-
-ffmpeg -y -i myexcerpt.mp4 -vf 'setpts=2.0*PTS' -af 'atempo=0.5' -strict experimental  myslowmo.mp4
 
 
 

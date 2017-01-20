@@ -12,6 +12,13 @@ Homework
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
 
 
+.. rubric:: Due: 2017-01-24
+
+.. toctree::
+   :maxdepth: 1
+
+   /syllabus/assignments/homework/contrived-cli-data-crunching
+
 .. rubric:: Due: 2017-01-19
 
 .. toctree::

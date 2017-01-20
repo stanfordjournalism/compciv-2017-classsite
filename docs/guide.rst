@@ -22,7 +22,7 @@ Command-line reference
 ----------------------
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
 
    /guide/topics/command-line/standard-commands/sort
    /guide/topics/command-line/nonstandard-commands/ack
@@ -30,17 +30,17 @@ Command-line reference
 
 
 
-Exercises
-=========
+.. Exercises
+.. =========
 
 
-Command-line
-------------
+.. Command-line
+.. ------------
 
-.. toctree::
-    :maxdepth: 1
+.. .. toctree::
+..    :maxdepth: 1
 
-    /guide/exercises/command-line/bash-d4d-big-dollar-amounts
-    /guide/exercises/command-line/bash-csv-tweets-trump-clinton-time-series
+..     /guide/exercises/command-line/bash-d4d-big-dollar-amounts
+..     /guide/exercises/command-line/bash-csv-tweets-trump-clinton-time-series
 
 

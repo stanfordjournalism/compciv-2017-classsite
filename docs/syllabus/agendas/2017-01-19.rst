@@ -5,9 +5,31 @@ Day 4: Thursday, January 19, 2017 - Theory of the Pipe
 
 This is the last focused day on command line scripting before we move into the Python programming language -- which, confusingly enough, has its own command line interpreter...why is why it's good to be familiar with the very concept of an "interactive shell".
 
+Homework
+========
+
+Like the previous assignment, accept 12 times as many exercises:
+
+- :doc:`/syllabus/assignments/homework/contrived-cli-data-crunching`
 
 
+Our dev server
+==============
 
+By the end of class today, you should get an email from me with instructions on how to log on to our "dev server".
+
+The address is: ``dev.thrill.haus``
+
+And you SSH into it like:
+
+.. code-block:: shell
+
+    $ ssh your_sunet_id@dev.thrill.haus
+
+
+.. note:: note
+
+    This is my private server built for this class with all the software that is needed to do the homework assigned today. The fact that your username on my server is the same as it is on Stanford's is deliberate (remember how naming things is a hard computer science problem?), but the server has no connection to Stanford's servers at all.
 
 
 How Doug McIlroy, inventor of the Unix pipe, `summarized the Unix philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`_:
@@ -17,10 +39,29 @@ How Doug McIlroy, inventor of the Unix pipe, `summarized the Unix philosophy <ht
 
 
 
+The Unix Pipe
+=============
+
+(moved from the lecture notes on 2017-01-17)
+
+This 27-minute film from Bell Labs, titled `"The UNIX System: Making Computers More Productive" <https://www.youtube.com/watch?v=tc4ROCJYbm0>`_, is really worth watching if you enjoy 1980s-nostalgia. But here is a key excerpt about what made Unix significantly unique back then, explained by Bell Labs programmer Brian Kernighan (`starts at 4:58 <https://youtu.be/tc4ROCJYbm0?t=4m58s>`_):
+
+What Kernighan said back in 1982 still applies today:
+
+    What you can do is to think of these Unix system programs as...building blocks with which you can create things. And the thing that distinguishes Unix system from many other systems is the degree to which those building blocks can be glued together in a variety of different ways. Not just obvious ways but in many cases, very unobvious ways to get different jobs done. The system is very flexible in that respect.
 
 
-Why we don't Bash
-=================
+When he talks about how Unix works -- as a framework that lets programs operate in *igornance* of each other -- that's how we should think of our own programs:
+
+    I think the notion of pipelining is the fundamental contribution...You can take a bunch of programs and stick them together end-to-end so that the data simply flows from the one on the left to the one on the right. And the system itself looks after all of the connections, all of the synchronization, making sure that the data goes from the one [program] into the other.
+
+    **The programs themselves don't know anything about the connection as far as they're concerned. They're just talking to the terminal.**
+
+
+
+
+Why we don't Bash all the time
+==============================
 
 We've been executing commands in the Unix way through `Bash, the Bourne Again Shell <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`_. We could have been doing proper programming in Bash, with variables and for loops and if statements, instead of doing it in Python.
 
@@ -43,37 +84,37 @@ Every programming language has the power to do creative, and destructive things.
 
 
 
-Understanding the Python shell and command-line interpretation
-==============================================================
+.. Understanding the Python shell and command-line interpretation
+.. ==============================================================
 
-(Might move this to next week)
-
-
-Variables
-=========
-
-A fundamental programming concept we've ignored through the command-line lessons.
+.. (Might move this to next week)
 
 
-Functions
-=========
+.. Variables
+.. =========
+
+.. A fundamental programming concept we've ignored through the command-line lessons.
 
 
-
-Function scope and design
--------------------------
+.. Functions
+.. =========
 
 
 
-Play with awscli
-================
-
-simple-notification-service
----------------------------
-
-(One of the main reasons I looked into AWS in the first place)
+.. Function scope and design
+.. -------------------------
 
 
-rekognize
----------
+
+.. Play with awscli
+.. ================
+
+.. simple-notification-service
+.. ---------------------------
+
+.. (One of the main reasons I looked into AWS in the first place)
+
+
+.. rekognize
+.. ---------
 

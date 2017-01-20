@@ -1,12 +1,16 @@
 # aws
 
+```
+aws s3  sync . s3://2017.compciv.org \
+```
+
 
 ```sh
 # push to s3
 cd  _build/html \
   && aws s3  sync . s3://2017.compciv.org \
   && cd ../..
-
+da
 make html SPHINXOPTS='-E'
 ```
 
@@ -82,3 +86,11 @@ http://www.sphinx-doc.org/en/1.5.1/markup/code.html
 
 
 .. include:: syllabus/tech-stack.rst.inc
+
+
+
+### Local toc
+
+http://stackoverflow.com/questions/24129481/how-to-include-a-local-table-of-contents-into-sphinx-doc
+
+.. contents:: :local:
