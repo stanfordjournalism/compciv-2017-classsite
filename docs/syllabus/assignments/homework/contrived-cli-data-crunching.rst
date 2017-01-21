@@ -127,8 +127,14 @@ And, where mentioned:
 Prompt:
     The script ``1.sh`` should read the raw data text file of NASA temperature measurements and transform it into a two-column CSV, with the year and annual mean.
 
+Landing page:
+    https://data.giss.nasa.gov/modelforce/
+
 Direct download URL:
     https://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt
+
+Mirror URL:
+    http://stash.compciv.org/2017/nasa-gistemp.txt
 
 
 Expected output
@@ -169,10 +175,23 @@ I expect to see:
     2005,0.86
 
 
+If you save the output of your ``1.sh`` script to a CSV file and open it in a modern spreadsheet (such as Google Sheets, and not the piece of crap that is Excel 2011), the result will look like this:
+
+.. image:: images/nasa-giss-line-chart.png
+
+
+
+
+
 
 Hints
 ^^^^^
-This is unstructured data that *looks* like structured data:
+
+The NASA data is unstructured text that *looks* like structured data.
+
+Here is what the first 8 lines and the bottom 5 lines look like:
+
+http://stash.compciv.org/2017/nasa-gistemp-sample.txt
 
 
 .. code-block:: text
@@ -185,16 +204,19 @@ This is unstructured data that *looks* like structured data:
      1881     -0.55         *
      1882     -0.46     -0.58
      1883     -0.53     -0.60
-     1884     -0.80     -0.63
-     1885     -0.64     -0.70
-     1886     -0.75     -0.71
-     ...
-     2013      0.79      0.82
      2014      0.85      0.91
      2015      0.95         *
      2016      1.23         *
 
     ------------------------------------
+
+We want the first two columns (``Year`` and ``Annual_Mean``) and none of the boilerplate, such as the headers or the ``----------`` lines.
+
+As further evidence that this isn't structured data, paste the above text into any spreadsheet:
+
+.. image:: images/nasa-giss-sample-pasted-excel.png
+
+
 
 
 We have to use a regex to bend it to our desired format. We want the **Year** and the **Annual_Mean**. What's that as a regex pattern?
@@ -210,8 +232,31 @@ Here's one way to do that pattern; finish it up with a capturing group and the u
 
 .. code-block:: shell
 
-    $ curl -s https://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt \
+    $ curl -s http://stash.compciv.org/2017/nasa-gistemp.txt \
         | ack -o '\d{4} +-?\d+\.\d+'
+
+
+Useful regular expression techniques:
+
+- optionality with ``?`` http://www.regular-expressions.info/alternation.html
+- limited repetition with ``{n}`` http://www.regular-expressions.info/repeat.html
+- one-or-more matching with ``+`` http://www.regular-expressions.info/repeat.html
+- Capturing groups with ``( )`` http://www.regular-expressions.info/brackets.html
+
+
+Because the data file is 100+ lines, you may want to test against this 13-line version just so it's easier to predict what you want to see as the answer:
+
+http://stash.compciv.org/2017/nasa-gistemp-sample.txt
+
+
+To see an example of how I iteratively create the regex pattern, step-by-step, check out this animated demo:
+
+https://asciinema.org/a/100135
+
+**Remember your UP key!**
+
+
+
 
 
 
@@ -222,8 +267,14 @@ Here's one way to do that pattern; finish it up with a capturing group and the u
 Prompt:
     The script ``2.sh`` should read the NASA file of unstructured data and output a two-column CSV of annual CO2 measurements by year and parts per million. Collect only the data under the ``Observations`` table, and **not** the ``Future Scenarios``.
 
+Landing page:
+    https://data.giss.nasa.gov/modelforce/
+
 Direct download URL:
    https://data.giss.nasa.gov/modelforce/ghgases/Fig1A.ext.txt
+
+Mirror URL:
+    http://stash.compciv.org/2017/nasa-ghgases.txt
 
 
 Expected output
@@ -275,7 +326,7 @@ This is a good use for the ``head`` program:
 .. code-block:: shell
 
 
-    $ curl -s https://data.giss.nasa.gov/modelforce/ghgases/Fig1A.ext.txt \
+    $ curl -s http://stash.compciv.org/2017/nasa-ghgases.txt \
         | head -n 57
 
 
@@ -428,6 +479,11 @@ The csvkit suite of tools has a tool named ``csvgrep`` for exactly this occasion
     $ curl -s http://stash.compciv.org/2017/menlo-park-building-permits.csv \
         | csvgrep -c 8 -r '\d{9,}'
 
+
+
+.. warning:: A note for Stanford students
+
+    I think the ``csvgrep`` on the McClatchy hall computers is out of date, and the above example may not work. Test it out on the ``dev.thrill.haus`` server.
 
 
 
