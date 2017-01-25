@@ -1,41 +1,20 @@
-************************************************************
-Day 6: Thursday, January 26, 2017 - Data structures and APIs
-************************************************************
+**************************************************************
+Day 6: Thursday, January 26, 2017 - Python Introduction Part 2
+**************************************************************
 
-Lists and ranges (continuation)
-===============================
+The for-loop is everything
+==========================
 
-Dicts
-=====
+My personal philosophy about teaching programming is that when a student understand how a for-loop works, and what it can do, then they've learned enough to become a very powerful programmer in the world.
 
+This is the for-loop syntax in Python:
 
+.. code-block:: python
 
-JSON (and data serialization in general)
-========================================
-
-
-
+    for x in [1, 2, 3, 4, 5]:
+        print('hello world')
 
 
-Why API?
-========
+The more I teach though, the more I realize how much I've underestimated the depth of understanding needed to grok the simplest for-loop. There's no analogy to it in the real world for non-programmers to hang on to. They know what a repeating cycle of events is, but they don't know what it means to control the action in a loop.
 
-Not all companies see benefit in making their systems accessible to outside programming.
-
-
-
-`Engineer builds machine to swipe right on Tinder non-stop
- <http://www.dailydot.com/debug/engineer-tinder-auto-swipe-machine/>`
-
-
-.. raw:: html
-
-    <iframe width="853" height="480" src="https://www.youtube.com/embed/Qgnxb-O-CBQ?rel=0" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-Read the documentation
-======================
-
-APIs are designed (usually) for humans. Pick an API with good documentation, start thinking how we might tie it together.
+I've been equally surprised at how many computer science professionals and academics don't appreciate the loop. I've come to learn that it's not the technical concept that is complicated, but the bigger picture thinking and personal reflection that is needed to understand how much of your intellectual work is purely mechanical and can be "looped"
