@@ -2,4 +2,4 @@
 
    .. toctree::
 
-      /syllabus/agendas/2017-02-07
+      /syllabus/agendas/2017-02-09

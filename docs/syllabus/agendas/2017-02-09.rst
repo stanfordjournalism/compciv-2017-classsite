@@ -2,6 +2,19 @@
 Day 10: Thursday, February 9, 2017 - Web Scraping 2
 ***************************************************
 
-
 Understanding the browser dev tools network inspector.
+
+http://www.compjour.org/tutorials/watching-traffic-network-panel/
+
+https://github.com/alex/what-happens-when
+
+
+
+Readings
+========
+
+Pretend we had a big quiz in class today. It would look a lot like this:
+
+:doc:`/guide/exercises/python/hello-data-serialization`
+
 

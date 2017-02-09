@@ -11,6 +11,7 @@ Python
    /guide/topics/python-standard-library/csv
    /guide/topics/python-nonstandard-libraries/pillow
    /guide/topics/python-nonstandard-libraries/beautifulsoup
+   /guide/exercises/python/hello-data-serialization
 
 
 Command-line Articles
