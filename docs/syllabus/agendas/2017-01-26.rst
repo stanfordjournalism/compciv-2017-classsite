@@ -2,6 +2,108 @@
 Day 6: Thursday, January 26, 2017 - Python Introduction Part 2
 **************************************************************
 
+
+
+
+The big concept here is **flow control** - the ability to create branching logic in an automated program. This includes **loops**, in which we define an action to be repeated across a collection of values.
+
+In the snippet below, the **collection of values** is a *list* of numbers ``1`` through ``5``, and the action is just good ol fashioned printing of ``"hello world"``:
+
+.. code-block:: python
+
+    for i in [1, 2, 3, 4, 5]:
+        print('hello world')
+
+What does that do? Run it yourself. But you can probably predict the result: ``hello world`` is printed 5 times.
+
+Doing the same literal thing repeatedly is about as exciting as writing a program that just prints ``hello world`` or any literal value just once. So this is where loops are special: the ability to vary the result based on the iteration of the loop:
+
+
+.. code-block:: python
+
+    for n in range(1, 6):
+        print('hello world for the {num}th time'.format(num=n))
+
+Note that I've changed the name of the iteration variable from ``i`` to ``n`` -- because I can, because it's just a variable name. And instead of typing out a list of numbers from one through five, I used the ``range`` data structure in Python.
+
+That string ``format`` method, which allows us to substitute values into a string using placeholders, you can read about here: `How To Use String Formatters in Python 3 <https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3>`_
+
+The resulting output of that loop:
+
+.. code-block:: text
+
+    hello world for the 1th time
+    hello world for the 2th time
+    hello world for the 3th time
+    hello world for the 4th time
+    hello world for the 5th time
+
+That first line doesn't look very good. So, let's use a **conditional** statement so that in the condition that ``n`` is ``1``, don't print ``th``, but use ``st``:
+
+
+.. code-block:: python
+
+    for n in range(1, 6):
+        if n == 1:
+            print('hello world for the {num}st time'.format(num=n))
+        else:
+            print('hello world for the {num}th time'.format(num=n))
+
+
+And that's the gist of what flow control in programming is. I've deliberately picked stupidly trivial examples so that you get the syntax. Otherwise, what you can expect is that instead of printing out "hello world" inside the body of a loop, we will try to do more interesting things.
+
+
+
+Readings
+========
+
+Collections
+-----------
+
+We'll take some time to focus on these data types next week -- particularly, how we read serialized data formats like CSV and JSON and convert them to dicts and lists, but for now, it's just important to be familiar with them:
+
+**Lists** and **dictionaries** (i.e. ``dict``) are collections of values.
+
+- `Lists <https://automatetheboringstuff.com/chapter4/>`_, Chapter 4 from Automate the Boring Stuff.
+- `Dictionaries <https://automatetheboringstuff.com/chapter5/>`_, Chapter 5 from Automate.
+
+
+
+For-loops
+---------
+
+- `For loop fundamentals <http://www.compciv.org/guides/python/fundamentals/for-loops/>`_
+
+- `Loop exercises <http://learnpython.org/en/Loops>`_ from LearnPython.
+
+- `Loops and Lists <https://learnpythonthehardway.org/python3/ex32.html>`_ from Learn Python the Hard Way.
+
+
+
+If/else conditional statements
+------------------------------
+
+- `Conditional branching fundamentals <http://www.compciv.org/guides/python/fundamentals/conditional-branching/>`_
+
+- `Conditions <http://learnpython.org/en/Conditions>`_ - exercises on if/else and boolean expressions.
+
+- `Flow Control <https://automatetheboringstuff.com/chapter2/>`_ from Automate the Boring Stuff (covers both loops and conditional statements)
+
+
+
+FizzBuzz
+--------
+
+The `FizzBuzz test <http://www.compciv.org/guides/python/fundamentals/fizzbuzz-challenge/>`_ is an example exercise used to demonstrate how someone could get a PhD in computer science and still struggle with what is usually considered the most basic parts of programming (variables, loops, conditionals):
+
+> Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”
+
+
+It's not homework, `but you can look over my notes from last year <http://www.compciv.org/guides/python/fundamentals/fizzbuzz-challenge/>`_. It's just a few lines of code -- depending on how you interpret the instructions. If you can do it, you probably grasp the material in the readings. If you can't, you'll just need some more practice.
+
+
+
+
 The for-loop is everything
 ==========================
 
@@ -18,3 +120,54 @@ This is the for-loop syntax in Python:
 The more I teach though, the more I realize how much I've underestimated the depth of understanding needed to grok the simplest for-loop. There's no analogy to it in the real world for non-programmers to hang on to. They know what a repeating cycle of events is, but they don't know what it means to control the action in a loop.
 
 I've been equally surprised at how many computer science professionals and academics don't appreciate the loop. I've come to learn that it's not the technical concept that is complicated, but the bigger picture thinking and personal reflection that is needed to understand how much of your intellectual work is purely mechanical and can be "looped"
+
+
+
+
+
+What is an API?
+===============
+
+When services talk about having an API (Application Programming Interface), like Twitter, New York Times, or Spotify it means they have an official way for you (or rather, your *applications**) to programmatically access their data.
+
+- `New York Times API <http://developer.nytimes.com/>`_
+- `Twitter API <https://dev.twitter.com/rest/public>`_
+- `Spotify API <https://developer.spotify.com/web-api/>`_
+
+
+One well-known example of using the Twitter API is `Politwoops: Explore the Tweets They Didn't Want You to See <https://projects.propublica.org/politwoops/>`_.
+
+To understand why an API is needed, consider the `inspiration for Politwoops <http://www.thedailybeast.com/articles/2012/06/01/at-politwoops-washington-s-deleted-tweets-come-back-from-the-dead.html>`_ -- Anthony Weiner accidentally sending a sext in a public tweet and someone seeing it before he deleted it -- and how that monitoring of "oopsies" by politicians would be done, whether through an army of interns/volunteers, or through computers.
+
+And to understand what the implications of APIs are, or why services might not offer as much of an "interface" as we want, consider Twitter's decision (later reversed) to shut down `Politwoops API access <http://www.theverge.com/2015/6/4/8731387/politwoops-sunlight-foundation-twitter>`_.
+
+
+It's almost easier to understand services that *don't* have APIs:
+
+How [an engineer uses Tinder](https://www.youtube.com/watch?v=Qgnxb-O-CBQ):
+
+.. raw:: html
+
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/Qgnxb-O-CBQ?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+`Craigslist Sues PadMapper, 3Taps For 'Undermining The Integrity Of Local Craigslist Communities <http://www.idigitaltimes.com/craigslist-sues-padmapper-3taps-undermining-integrity-local-craigslist-communities-335675>`_
+
+
+`Congress passes BOTS Act to ban ticket-buying software <https://arstechnica.com/tech-policy/2016/12/congress-passes-bots-act-to-ban-ticket-buying-software/>`_
+
+
+
+The fear of automation
+----------------------
+
+We're pretty much on our way to writing fun programs, like bots. I think you'll find that the steps have a simplicity that belies the real-world effect of an automated process.
+
+Consider this January 18, 2017 article from the Daily: `Stanford responds to FERPA protest requests <http://www.stanforddaily.com/2017/01/18/stanford-responds-to-ferpa-protest-requests/>`_, particularly the part where the article describes how the university handles info requests differently because of how the request is submitted:
+
+> Those who submitted automated requests returned from winter break to an email from the Office of the Registrar regarding the University’s stance on both the ban on the Band and the subsequent FERPA auto-request protest, quoting passages from the FoHo.
+
+> “Stanford believes that this template-based request … constitutes a misuse of FERPA,” said Thomas Black, associate vice provost for student and academic services and University Registrar, in the email. “This law is intended to allow students access to their education records; it is not a mechanism for protest.”
+
+
+

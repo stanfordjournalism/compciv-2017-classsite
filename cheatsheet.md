@@ -1,7 +1,7 @@
 # aws
 
 ```
-aws s3  sync . s3://2017.compciv.org \
+aws s3  sync . s3://2017.compciv.org
 ```
 
 

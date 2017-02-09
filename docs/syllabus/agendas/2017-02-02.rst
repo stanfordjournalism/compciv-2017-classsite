@@ -1,26 +1,123 @@
-************************************************************
-Day 8: Thursday, February 2, 2017 - Cloud computing with EC2
-************************************************************
+***************************************************
+Day 8: Thursday, February 2, 2017 - Real-world APIs
+***************************************************
 
 
-Shell redux
+Assignments
 ===========
 
-Now everyone is on the same playing field.
+- :doc:`/syllabus/assignments/homework/earthquake-mapper`
+- And one more, with Chicago homicides...
+
+
+Real-world meets APIs
+=====================
+
+Officer-Involved from The Intercept uses the Fatal Encounters police data and mashes it with Google's Street View API: https://theintercept.co/officer-involved/
+
+
+Disputed territories: where Google Maps draws the line: https://www.theguardian.com/technology/shortcuts/2016/aug/10/google-maps-disputed-territories-palestineishere
+
+
+Here's documentation for Google Static Maps API:
+
+https://developers.google.com/maps/documentation/static-maps/intro?hl=en
+
+Here's a map centered around Vietnam:
+
+https://maps.googleapis.com/maps/api/staticmap?size=650x400&center=Vietnam
+
+Here's that same map, except with a ``region`` parameter of ``us``:
+
+http://maps.googleapis.com/maps/api/staticmap?size=650x400&center=Vietnam&region=us
+
+Here's that same map, except with a ``region`` parameter of ``vn`` (i.e. Vietnam):
+
+http://maps.googleapis.com/maps/api/staticmap?size=650x400&center=Vietnam&region=vn
+
+And, one more time, except with a ``region`` parameter of ``cn`` (China):
+
+http://maps.googleapis.com/maps/api/staticmap?size=650x400&center=Vietnam&region=cn
+
+Notice any differences? This is all just a long way of saying that programming, data, and statistics are all complicated. And it gets way worse when dealing with the real world...
 
 
 
-Scheduling and crontab
-======================
+How to sort
+===========
+
+Sorting is a complicated thing in programming, at least compared to how we take it for granted.
+
+The main thing to be aware of is that, as with most things in programming, we have to tell the interpreter exactly how something should be sorted when we have a collection of things that are not simply numbers.
 
 
-AWS boto for Python
-===================
+Further reading: `Sorting Python collections with the sorted method <http://www.compciv.org/guides/python/fundamentals/sorting-collections-with-sorted/>`_
 
 
-Github
-======
+Warmup with ProPublica's Represent API
+======================================
 
-(if we haven't used it already)
+One of the hot issues of *du jour* is the Senate confirmation for President Trump's cabinet. Generally, members of the Senate vote with their party, and since Trump's party has majority rule in the Senate, most of his appointees are expected to be confirmed.
 
-Remote computing means it's harder to keep things synced. Git and Github handle the monotony of that work, with a small price in overhead.
+However, **Betsy DeVos**, his nominee for education secretary, is currently facing a 50-50 split. This means that if one more Republican splits with their party, she will not be confirmed.
+
+From POLITICO, `DeVos nomination stands at 50-50 <http://www.politico.com/story/2017/02/susan-collins-betsy-devos-confirmation-234497>`_:
+
+    Betsy DeVos has no votes to spare heading into a looming confirmation vote next week.
+
+    Republican Sens. Susan Collins and Lisa Murkowski said Wednesday they will vote against the Education Department nominee. That could very well mean a 50-50 standoff on the Senate floor — and Vice President Mike Pence being called in to put DeVos over the top. Republicans have a 52-48 majority, and no Democrats are expected to support the prospective education chief.
+
+    Senior leadership aides are confident DeVos will prevail in a likely floor vote Monday. After Collins and Murkowski announced their opposition Wednesday, a wave of undecided GOP senators broke DeVos' way.
+
+
+Pretend you're a Democrat who doesn't want DeVos to be confirmed. Or, you're a Republican who wants to make darn sure no other Republican Senators break ranks.
+
+Using data about the 115th Senate, as provided `by the ``members`` endpoint from ProPublica's Congress API <https://propublica.github.io/congress-api-docs/#members>`_, write a program that prints out a "top 5" list of Republican Senators to focus your outreach. Follow these conditions:
+
+1. We assume that none of the Democratic senators will flip. So the list should consist of only Republican Senators, other than the two who flipped (Collins and Murkowski).
+2. Look at the data fields provided by ProPublica and figure out the best metric(s) for ranking the Republican senators by most-likely-to-break-ranks. Sort by that metric.
+3. Your program should print out the full name of the senator, their state, whatever metric you used to rank them, and their contact info.
+
+
+The official documentation of the data can be found on ProPublica's site:
+
+https://propublica.github.io/congress-api-docs/#members
+
+But to keep things simple, you can just ignore the 'how-to-request-from-an-API' details for now, and just fetch a cached copy of the data here:
+
+
+
+http://stash.compciv.org/2017/represent-115-senate.json
+
+
+This is a JSON file, but it's just another text file that can be serialized like any other. Here's how to get started:
+
+
+.. code-block:: python
+
+
+    def foo(member):
+        return member['last_name']
+
+
+    import requests
+    import json
+    URL = 'http://stash.compciv.org/2017/represent-115-senate.json'
+    resp = requests.get(URL)
+    data = json.loads(resp.text)
+    members =  data['results'][0]['members']
+
+    # sort it
+    s_members = sorted(members, key=foo)
+
+    for m in s_members:
+        if m['party'] == 'R':
+            print(m['first_name'], m['last_name'], m['state'])
+
+
+The trick is to understand **sorting**: in the above example, there is a call to the built-in ``sorted`` function. But what you have to notice is the ``key`` argument, which is where we specify the name of a function that we want to *evaluate* for each item in ``members``. I've called the function ``foo``. See if you can figure out how that relates to the ordering of the names as they are printed out.
+
+
+
+
+

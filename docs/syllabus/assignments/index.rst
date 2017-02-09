@@ -3,13 +3,33 @@ Assignments
 ***********
 
 
-
-
-
 Homework
 ========
 
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
+
+.. rubric:: Due: 2017-02-09
+
+.. toctree::
+   :maxdepth: 1
+
+   /syllabus/assignments/homework/texas-executed-scrape
+
+
+.. rubric:: Due: 2017-02-07
+
+.. toctree::
+   :maxdepth: 1
+
+   /syllabus/assignments/homework/earthquake-mapper
+
+
+.. rubric:: Due: 2017-02-02
+
+.. toctree::
+   :maxdepth: 1
+
+   /syllabus/assignments/homework/happy-birthday-congress
 
 
 .. rubric:: Due: 2017-01-24

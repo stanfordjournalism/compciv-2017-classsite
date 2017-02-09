@@ -2,10 +2,19 @@
 Guide
 *****
 
+Python
+======
+
+.. toctree::
+   :maxdepth: 1
+
+   /guide/topics/python-standard-library/csv
+   /guide/topics/python-nonstandard-libraries/pillow
+   /guide/topics/python-nonstandard-libraries/beautifulsoup
 
 
-Articles
-========
+Command-line Articles
+=====================
 
 .. toctree::
    :maxdepth: 2

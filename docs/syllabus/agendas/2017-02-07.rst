@@ -1,16 +1,117 @@
-*******************************************************************
-Day 9: Tuesday, February 7, 2017 - Web scraping and the dev console
-*******************************************************************
+*************************************************
+Day 9: Tuesday, February 7, 2017 - Web Scraping 1
+*************************************************
 
-HTML and CSS (very short) crash course
-======================================
-
-
-lxml and cssselect
-==================
+This week, we'll focus on web-scraping, and all the ancillary subjects that entails, including: what is HTML? What is a webpage? All topics that themselves could be their own course but that we simplify as: *it's all just text*
 
 
-Flask for fun
-=============
+Homework
+========
 
-Set up our own webserver, practice scraping it, preparing for web app work.
+:doc:`/syllabus/assignments/homework/texas-executed-scrape`
+
+
+Parsing HTML with BeautifulSoup
+===============================
+
+Full (brief) walkthrough of HTMl and BeautifulSoup:
+
+:doc:`/guide/topics/python-nonstandard-libraries/beautifulsoup`
+
+
+
+Web-scraping in the wild
+========================
+
+Don't think of web-scraping as anything more exotic than just automating the visiting of web pages. It's important that you actually know how to visit a web page and how to extract the data that you want.
+
+
+I've already mentioned ProPublica's Dollars for Docs:
+
+- The project: https://projects.propublica.org/docdollars
+- A tutorial on scraping the Pfizer website: https://www.propublica.org/nerds/item/scraping-websites
+- This story about medical faculty involved just collecting lists of names from faculty homepages and comparing it to our list of drug company payments: https://www.propublica.org/article/medical-schools-policies-on-faculty-and-drug-company-speaking-circuit
+
+
+ProPublica's `Machine Bias project <https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing>`_, which looks at how algorithms are used to "predict future criminals", required the reporters to scrape "jail records from the Broward County Sheriff's Office from January 2013 to April 2016":
+
+https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm
+
+
+Another memorable justice-related story enabled by web-scraping was the Omaha World-Herald's investigation that found that prison officials were miscalculating sentences:
+
+http://www.omaha.com/news/world-herald-special-investigation-nebraska-prison-doors-opened-too-soon/collection_6b8e4d14-f9c5-11e3-a970-0017a43b2370.html
+
+The IRE summary: http://www.ire.org/publications/ire-journal/search-journal-archives/2294/
+
+    After a chance encounter with an angry prosecutor, Omaha World-Herald reporter Todd Cooper discovered that a prisoner who had shot a bouncer in the head over a bar-tab dispute was about to get paroled, despite the fact that he had not served his mandatory prison sentence. Enlisting the help of Matt Wynn, they used Python to scrape several websites for prison data, court records and prisoner information. They found that at least 200 prisoners had at least 750 years incorrectly shaved off their prison sentences.
+
+
+
+Ideally, we could just get a database of current inmates and their prison sentences, as we can with `Texas <http://www.tdcj.state.tx.us/tab1_public.html>`_. In the case of Nebraska, though, reporters had to go the roundabout way of scraping the Nebraska prison website, which itself runs off of a database that apparently isn't publicly available.
+
+In other words, use web-scraping as a **last resort**. Usually, you can get the data you want in a more machine-readable format. For instance, instead of trying to scrape all of the stories from the New York Times from their website, you can use the NYT's official archive and stories API:
+
+https://developer.nytimes.com/
+
+However, not every resource has an API. That's when web-scraping becomes useful. The data collected from web-scraping can be then used in whatever application you want. Such as Vermont Public Radio's "Sewage Bot"" http://digital.vpr.net/post/why-were-retiring-vprs-sewage-bot-2017#stream/0
+
+
+
+Fun, selfish uses of web-scraping
+=================================
+
+Web-scraping is a too-simple term that is used to encompass a wide-variety of data wants-and-needs, nevermind skill sets.
+
+The best way to learn web-scraping is to collect something you care about, in the most direct way possible. Examples abound of checking for things on Craigslist:
+
+- Scraping Apartment Listings from Craigslist http://cewing.github.io/training.codefellows/assignments/day11/scraper.html
+- Scraping Craigslist for sold out concert tickets http://www.gregreda.com/2014/07/27/scraping-craigslist-for-tickets/
+- Scraping Craigslist (Cars+Trucks) http://blog.nycdatascience.com/student-works/scraping-craiglist/
+
+
+Local example: Scrape the Stanford CS calendar for free meals:
+
+https://www-cs.stanford.edu/events/calendar
+
+Sure, we could make a sophisticated algorithm. Or, we could just make a guess that events with food have a very simple heuristic, and all we want to do is print a list of URL for events that have food.
+
+
+
+.. code-block:: python
+
+    def foo_food(text):
+        txt = text.lower()
+        if ('lunch' in txt or 'dinner' in txt or 'meal' in txt or 'food' in txt):
+            return True
+        else:
+            return False
+
+    from bs4 import BeautifulSoup
+    from urllib.parse import urljoin
+    import requests
+    SRC_URL = 'https://www-cs.stanford.edu/events/calendar'
+    resp = requests.get(SRC_URL)
+    soup = BeautifulSoup(resp.text, 'lxml')
+
+    for link in soup.select('a'):
+        # not all anchor tags of legit URLs
+        atts = link.attrs
+        href = atts.get('href')
+        if href and 'events/' in href:
+            # the urls are relative, e.g. "/events/citadel-interviews"
+            # so we use urljoin to fully resolve them:
+            # https://www-cs.stanford.edu/events/citadel-interviews
+
+            eventurl = urljoin(SRC_URL, href)
+            resp = requests.get(eventurl)
+            esoup = BeautifulSoup(resp.text, 'lxml')
+
+            if foo_food(esoup.text):
+                print("YES FOOD:", eventurl)
+            else:
+                print("NO FOOD:", eventurl)
+
+
+
+

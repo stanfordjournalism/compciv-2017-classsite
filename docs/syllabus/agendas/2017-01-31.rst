@@ -1,15 +1,63 @@
-**************************************************************************
-Day 7: Tuesday, January 31, 2017 - Sorting, mutability, data serialization
-**************************************************************************
+*****************************************************
+Day 7: Tuesday, January 31, 2017 - Data serialization
+*****************************************************
 
 
-Why doesn't sort just sort?
-===========================
+
+Assignment
+==========
+
+Last week's assignment has been split into 3 assignments due for Thursday. No quiz on Thursday.
+
+- :doc:`/syllabus/assignments/homework/happy-birthday-congress`
 
 
-The difference between .sort() and .sorted()
-=============================================
+
+
 
 
 Understand csv.reader, csv.DictReader, etc.
 ===========================================
+
+Understanding how text is *deserialized* into data objects, and vice versa, is key to doing data work. If you can't turn text into data, you aren't going to get very far:
+
+:doc:`/guide/topics/python-standard-library/csv`
+
+
+JSON
+====
+
+JSON is just another data format, one that allows for data more complex that can be represented in a data row.
+
+
+As far as we're concerned, JSON is a text format that gets serialized into Python dictionaries and lists  when we use Python's ``json.load()``. JSON's readability and lightness is a big factor in why it's the most popular data format for APIs today.
+
+Example assignment from last year using Python's ``json`` library to deserialize the JSON responses from Google's geocoding API:
+
+http://www.compciv.org/assignments/exercise-sets/0010-map-json-responses-set/
+
+
+.. code-block:: python
+
+    >>> import requests
+    >>> import json
+    >>> url = 'http://www.compciv.org/files/datadumps/apis/googlemaps/geocode-stanford.json'
+    >>> resp = requests.get(url)
+    >>> type(resp.text)
+    str
+    >>> mydata = json.loads(txt)
+    >>> type(mydata)
+    dict
+    >>> mydata['status']
+    'OK'
+    >>> len(mydata['results'])
+
+
+APIs
+====
+
+Please sign up for these 3 free APIS by Thursday:
+
+- ProPublica's Congress API https://propublica.github.io/congress-api-docs/
+- The New York Times API for Article Search: https://developer.nytimes.com/
+- Reddit: https://www.reddit.com/dev/api/
