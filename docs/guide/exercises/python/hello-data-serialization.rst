@@ -5,17 +5,32 @@ Hello Data De-Serialization with JSON and CSV
 
 Just in case you need more practice with the concept of converting a string of text into Python data objects such as dictionaries and lists, here are 16 exercises involving a very trivial, nonsensical dataset that has been serialized into JSON and CSV.
 
+.. contents::
+
+
+
+
+What you should know
+====================
+
+About the data
+--------------
+
+Don't try to make real-world sense of the data: it's too dumb and simple to describe in real-world terms. Just care about the structure
+
+
 http://stash.compciv.org/2017/helloworld.json
 
 http://stash.compciv.org/2017/helloworld.csv
-
 
 Note: in order to make it so both text files conveyed roughly the same information, I deliberately made the CSV file, well, not a CSV file by throwing in unstructured text at the top of the file. This is actually something you'll see in real-world datasets, where a dataset owner will insert text meant as metadata, such as a copyright notice or contact address, which will cause CSV-parsing programs such as Excel to think that the actual "data" is messed up.
 
 So how to get around this? Remember that a CSV text file, when opened and read, is just a plain Python string. Are there parts of that string that are irrelevant to what you want to send to the CSV parser, i.e. ``csv.reader()``? Then don't send those parts of the string.
 
-What you should know
-====================
+
+About Python and data formats
+-----------------------------
+
 
 You should be familiar enough with the **csv** and **json** built-in libraries and methods for serializing text strings into data objects:
 
@@ -53,7 +68,7 @@ And, of course, how to create a sorted copy of a dictionary or list, sorted by a
 
 
 Relevant readings
-^^^^^^^^^^^^^^^^^
+-----------------
 
 - "Automate" chapter on Lists: https://automatetheboringstuff.com/chapter4/
 - "Automate" chapter on Dictionaries and Structuring DatA: https://automatetheboringstuff.com/chapter5/
@@ -64,7 +79,6 @@ Relevant readings
 - Python's documentation for the csv library: https://docs.python.org/3/library/csv.html
 - Python's documentation for the json library: https://docs.python.org/3/library/json.html
 - Sorting in Python with the sorted method(): http://www.compciv.org/guides/python/fundamentals/sorting-collections-with-sorted/
-
 
 
 
@@ -256,7 +270,7 @@ Expected result:
 
 
 7. Do a group count of inventory items by their "type"
------------------------------------------------------
+------------------------------------------------------
 
 Expected result:
 
@@ -277,8 +291,51 @@ Expected result:
 
 
 
-The data, as JSON and CSV
-=========================
+Information and Hints
+=====================
+
+Even though the solutions to each question should be packaged as a standalone function, you should be using the interactive ``ipython`` shell to walk through the steps. After you've confirmed that each line of your program works, then you re-write it in your text editor as a function inside a Python script.
+
+(More hints to come, maybe)
+
+
+Organizing these examples as a project
+--------------------------------------
+
+I ask that you solve these exercises by creating a file and writing a function for each problem. So if you want to solve just the JSON exercises, create a Python script named ``json_fun.py``
+
+Then add a define a function named ``foo_x()``:
+
+.. code-block:: python
+
+    def foo_x():
+        return 'just testing'
+
+
+
+To interactively test out your script, you can jump into the ``ipython`` shell, relative to your working directory (i.e. in the same directory as your python scripts). And then you include your script as if it were any other Python module:
+
+.. code-block:: python
+
+    >>> import json_fun
+    >>> json_fun.foo_x()
+    >>> 'just testing'
+
+
+For certain homework assignments, I also include a ``foo_assertions()`` function, which contains a long list of ``assert`` statements. Basically, it is automated testing of what your ``foo_1()``, etc. functions should be returning.
+
+Here's an example of a script that has the first 3 JSON problems done and also contains a `foo_assertions()`` function that runs a couple of tests on each ``foo_()`` function. If you alter any of the sample functions to return something that you know is wrong, you'll see what `foo_assertions()` does.
+
+
+
+..  literalinclude:: /code/python/hello_json_example.py
+
+
+
+
+
+The data as text
+----------------
 
 Here's what the JSON looks like:
 
@@ -344,18 +401,22 @@ Solutions
 =========
 
 
-For the JSON-formatted data
----------------------------
-
-..  literalinclude:: /code/python/hello-json.py
 
 
 
+Complete solution for the JSON-formatted data
+---------------------------------------------
 
-From the CSV-formatted data
-----------------------------
+(doesn't include assertions -- you can write those yourself.)
 
-..  literalinclude:: /code/python/hello-csv.py
+..  literalinclude:: /code/python/hello_json.py
+
+
+
+Complete solution for the CSV-formatted data
+--------------------------------------------
+
+..  literalinclude:: /code/python/hello_csv.py
 
 
 
