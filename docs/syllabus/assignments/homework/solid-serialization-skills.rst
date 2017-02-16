@@ -10,7 +10,7 @@ Points: 100
 
 Bonus: 20
 
-Due date: 2017-02-14
+Due date: 2017-02-16
 
 
 
@@ -24,8 +24,15 @@ First, read this guide and make sure you can complete it as if it were a pop qui
 
 Then, these assignments (more to come by Friday)
 
-- :doc:`/syllabus/assignments/homework/serials/usa-gov-analytics`
-- :doc:`/syllabus/assignments/homework/serials/chicago-homicides`
+.. toctree::
+    :maxdepth: 1
+
+    /syllabus/assignments/homework/serials/usa-gov-analytics
+    /syllabus/assignments/homework/serials/chicago-homicides
+    /syllabus/assignments/homework/serials/spotify-beyonce-relations
+    /syllabus/assignments/homework/serials/just-trump-tweets-csv
+    /syllabus/assignments/homework/serials/multiple-user-tweets-csv
+    /syllabus/assignments/homework/serials/trump-tweets-json
 
 
 Requirements

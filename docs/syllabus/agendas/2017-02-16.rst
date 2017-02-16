@@ -1,14 +1,10 @@
-********************************************************
-Day 12: Thursday, February 16, 2017 - Language and media
-********************************************************
+****************************************************
+Day 12: Thursday, February 16, 2017 - Geocoding Fun!
+****************************************************
 
 
-Understanding language through scaPy
-====================================
+Using geocoding (and other APIS) in the real world
+==================================================
 
 
-
-Working with moviepy and PIL
-============================
-
-What does automation add to art?
+Put our JSON/CSV/data-serialization skills to the (fun) test.

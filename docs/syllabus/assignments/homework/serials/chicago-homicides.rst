@@ -13,6 +13,10 @@ Deliverables
 
 You are expected to deliver a script named: ``chicago_homicides.py``
 
+The data file to use is: http://stash.compciv.org/2017/chicago-homicides.csv
+
+
+
 This script has **5** prompts, which means at the very least, your script will contain 5 separate function definitions, from `foo_1` to `foo_5`.
 
 
@@ -73,7 +77,7 @@ And I expect your script to have this code at the bottom:
 
 
 
-That script should have a ``if __name__ == '__main__'`` conditional block, in which a function named ``assertions_foo()`` is executed.
+That script should have a ``if __name__ == '__main__'`` conditional block, in which a function named ``foo_assertions()`` is executed.
 
 
 
@@ -83,7 +87,7 @@ Prompts
 
 The CSV data file for "Visits to and traffic sources for all participating agencies: Top traffic sources (30 days)"  has been mirrored here:
 
-http://stash.compciv.org/2017/analytics.usa.gov-top-traffic-sources-30-days.csv
+http://stash.compciv.org/2017/chicago-homicides.csv
 
 Download (and cache) that file, then parse/deserialize the text data, then write the ``foo_`` functions to satisfy the following prompts:
 

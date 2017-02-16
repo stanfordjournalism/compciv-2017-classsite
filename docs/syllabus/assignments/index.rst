@@ -8,7 +8,7 @@ Homework
 
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
 
-.. rubric:: Due: 2017-02-14
+.. rubric:: Due: 2017-02-16
 
 .. toctree::
    :maxdepth: 1

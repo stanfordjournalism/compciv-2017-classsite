@@ -60,7 +60,7 @@ And I expect your script to have this code at the bottom:
 
 
 
-That script should have a ``if __name__ == '__main__'`` conditional block, in which a function named ``assertions_foo()`` is executed.
+That script should have a ``if __name__ == '__main__'`` conditional block, in which a function named ``foo_assertions()`` is executed.
 
 
 

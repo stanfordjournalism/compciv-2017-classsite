@@ -3,14 +3,98 @@ Day 11: Tuesday, February 14, 2017 - Real-world catchup
 *******************************************************
 
 
-Revisiting the shell and Python concepts
-========================================
+More data-serialization work, but more walking through of it in class.
 
 
-Unicode and emoji
-=================
+.. contents::
 
-Time and strftime
-=================
+Exercises/Homework
+==================
 
-The pain begins.
+
+Make sure you can do this:
+
+:doc:`/guide/exercises/python/hello-data-serialization`
+
+Then do:
+
+:doc:`/syllabus/assignments/homework/solid-serialization-skills`
+
+
+Note:
+
+1. Due date has been pushed to this Thursday
+2. If you finished it for today, you get extra points
+3. Everyone gets to do 3 more Twitter-themed exercises:
+
+    - :doc:`/syllabus/assignments/homework/serials/just-trump-tweets-csv`
+    - :doc:`/syllabus/assignments/homework/serials/multiple-user-tweets-csv`
+    - :doc:`/syllabus/assignments/homework/serials/trump-tweets-json`
+
+
+
+
+Let's geocode with Mapzen!
+==========================
+
+To get ready for Thursday, do this for me:
+
+Go onto Mapzen's Devleoper page and follow the instructions on how to register an account:
+
+https://mapzen.com/documentation/overview/#developer-accounts-and-api-keys
+
+If you don't have a Github account, you'll have to sign up for one, but that's OK, because we will be using Github very soon:
+
+https://github.com/join
+
+Mapzen has many APIs, but the one that is most relevant is their Search API, which basically allows us to specify a human-readable address string, like "Stanford", and it returns a JSON object of the geospatial coordinates and geopolitical hierarchy of everything it thinks we might want. And oh, because naming things is hard and lots of places want to use the Stanford name, you'll see that the returned data includes many results with a ``confidence`` value.
+
+
+Here's an interactive version of the search API:
+
+https://mapzen.com/products/search/?query=Stanford&endpoint=search
+
+
+Here's the data response as JSON:
+
+
+http://stash.compciv.org/2017/mapzen-search-stanford.json
+
+
+And if you've successfully registered as a developer, you should be able to enter this URL into your browser and get results (or curl it), using your ``api_key``:
+
+
+https://search.mapzen.com/v1/search?text=Stanford&api_key=YOUR_API_KEY_HERE
+
+
+And here's some more detailed documentation in case you care (you probably don't):
+
+https://mapzen.com/documentation/search/search/
+
+
+Why geocode?
+------------
+
+Most of us are used to Google Maps, in which we enter any crazy human-readable string and get a useful interactive map:
+
+https://www.google.com/maps/search/in-n-out+burger+san+francisco
+
+
+It even works in their Static Maps API:
+
+http://maps.googleapis.com/maps/api/staticmap?size=650x400&markers=in-n-out-burger+san+francisco&zoom=10
+
+But what if we don't want an interactive map for an address/location string? What if we have thousands of those strings, such as addresses for licensed firearm or liquor dealers:
+
+
+And we want to do one of those really cool visualizations/analysis of showing which counties/zip codes/Census tracts have the most guns per coffee ratio:
+
+http://www.citylab.com/crime/2016/01/map-gun-dealers-starbucks/423801/
+
+
+Or more coffee than alcohol. Or guns. Or do some other correlation, like with real estate prices: http://www.zillow.com/research/data/
+
+
+Hey, it's all just text that can be deserialized into data. And it's all just APIs that require making HTTP requests. So hopefully on Thursday you'll see the end to the long end of painful mundanity.
+
+

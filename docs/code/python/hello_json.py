@@ -11,7 +11,7 @@ def foo_1():
     expected:
     'SUPER!'
     """
-    resp = requests.get(CSV_URL)
+    resp = requests.get(SRC_URL)
     txt = resp.text
     jdata = json.loads(txt)
     return jdata['status']
@@ -25,7 +25,7 @@ def foo_2():
     expected:
     5
     """
-    jdata = json.loads(requests.get(CSV_URL).text)
+    jdata = json.loads(requests.get(SRC_URL).text)
     inventory = jdata['inventory']
     return(len(inventory))
 
@@ -39,7 +39,7 @@ def foo_3():
     expected:
     ['apples', 'cats', 'dogs', 'kiwis', 'zebras']
     """
-    inventory = json.loads(requests.get(CSV_URL).text)['inventory']
+    inventory = json.loads(requests.get(SRC_URL).text)['inventory']
     nameslist = []
     for item in inventory:
         itemname = item['name']
@@ -58,7 +58,7 @@ def foo_4():
     607
     """
     thesum = 0
-    for item in json.loads(requests.get(CSV_URL).text)['inventory']:
+    for item in json.loads(requests.get(SRC_URL).text)['inventory']:
         c = item['count']
         thesum += c
     return thesum
@@ -81,7 +81,7 @@ def foo_5():
 
 
     thelist = []
-    for item in json.loads(requests.get(CSV_URL).text)['inventory']:
+    for item in json.loads(requests.get(SRC_URL).text)['inventory']:
         if item['type'] == 'animal':
             n = item['name']
             c = item['count']
@@ -99,13 +99,13 @@ def foo_6():
         and sorted in ascending order of count
 
 
-     [{'count': 76, 'name': 'kiwis'}, {'count': 300, 'name': 'apples'}]
+    [{'count': 76, 'name': 'kiwis'}, {'count': 300, 'name': 'apples'}]
     """
     def sorter(thing):
         return thing['count']
 
     thelist = []
-    for item in json.loads(requests.get(CSV_URL).text)['inventory']:
+    for item in json.loads(requests.get(SRC_URL).text)['inventory']:
         if item['type'] == 'fruit':
             d = {}
             d['name'] = item['name']
@@ -125,7 +125,7 @@ def foo_7():
     {'animal': 3, 'fruit': 2}
     """
     thedict = {}
-    inventory = json.loads(requests.get(CSV_URL).text)['inventory']
+    inventory = json.loads(requests.get(SRC_URL).text)['inventory']
     for item in inventory:
         itype = item['type']
         if thedict.get(itype):
@@ -147,7 +147,7 @@ def foo_8():
 
     """
     thedict = {}
-    inventory = json.loads(requests.get(CSV_URL).text)['inventory']
+    inventory = json.loads(requests.get(SRC_URL).text)['inventory']
     for item in inventory:
         itype = item['type']
         if thedict.get(itype):
