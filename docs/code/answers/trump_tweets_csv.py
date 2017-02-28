@@ -104,7 +104,6 @@ def foo_5():
         month = row[0]
         tcount = row[1]
         x = (screenname, month, tcount)
-
         data.append(x)
 
     return [('screen_name', 'month', 'count')] + sorted(data)

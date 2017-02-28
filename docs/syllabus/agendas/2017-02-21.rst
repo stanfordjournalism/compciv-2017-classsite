@@ -1,15 +1,14 @@
-*************************************************************************
-Day 13: Tuesday, February 21, 2017 - News applications (or guest speaker)
-*************************************************************************
+**********************************************************************
+Day 13: Tuesday, February 21, 2017 - Canceled Class/Marty Baron speaks
+**********************************************************************
+
+Class was canceled
+
+Folks were told to go see Marty Barton's talk at the Brown Institute:
 
 
 
 News applications and investigative journalism
 ==============================================
 
-
-Application design with Flask
-=============================
-
-Thinking about routes
-=====================
+In the original draft of this day's notes, there was mention of web applications and Flask and good old routing. One of the required projects is to build a web application. That will likely be the case, I'm still debating whether or not it's a full-fledged web-app (i.e. something with HTML, and designed for public use). Or an application that is accessible via HTTP.

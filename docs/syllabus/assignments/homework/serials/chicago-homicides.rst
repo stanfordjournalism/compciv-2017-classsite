@@ -342,3 +342,140 @@ As you can see in the year-by-year compilation of the data, Chicago has shown a 
 
 I think it's a bit trite to think that data analysis and tools alone can find a magical solution to Chicago's headline-making homicide rate. On the other hand, Chicago's data is unusually detailed, allowing an opportunity to at least understand and examine trends beyond the general body count.
 
+
+
+
+Answers
+=======
+
+
+Initial thoughts
+----------------
+
+Please don't think that laziness is a vice when it comes to programming:
+
+http://threevirtues.com/
+
+    Laziness: The quality that makes you go to great effort to reduce overall energy expenditure. It makes you write labor-saving programs that other people will find useful and document what you wrote so you don't have to answer so many questions about it.
+
+
+
+So here's a common pattern I saw:
+
+.. code-block:: python
+
+    def fetch_and_save_data():
+        if exists(DATA_FNAME):
+            pass
+        else:
+            resp = requests.get(DATA_URL)
+            makedirs(DIR_NAME, exist_ok = True)
+            with open(DATA_FNAME, 'w') as f:
+                f.write(resp.text)
+
+
+    def foo_1():
+        fetch_and_save_data()
+        f = open(DATA_FNAME, 'r')
+        data = csv.reader(f)
+        records = list(data)
+        f.close()
+
+        return(len(records))
+
+
+    def foo_2():
+        fetch_and_save_data()
+        f = open(DATA_FNAME, 'r')
+        data = csv.reader(f)
+        records = list(data)
+        f.close()
+
+        d = dict(Counter(r['Arrest'] for r in records))
+        d['rate'] = round(100 * d['true'] / len(records), 1)
+        return d
+
+
+
+
+I know I've talked a lot about how good repetition is...but I don't mean just doing rote repetition. I also mean rewriting things that already work, but trying to do it in a more elegant way.
+
+In the situation above, there is a chunk of code that does something pretty simple -- but creates a huge amount of visual load across every problem in the exercise.
+
+Don't always just try to get to the answers for the exercises -- they're designed (I hope...) to also give you room to think of ways to reduce your suffering/increase your productivity. One of my favorite things about programming is that it's one of the few intellectual pursuits in which getting better doesn't just mean making you smarter -- you also greatly increase your potential for making work easy.
+
+So please also focus on making your life easier (at least in the homework):
+
+.. code-block:: python
+
+    def fetch_and_save_data():
+        if exists(DATA_FNAME):
+            pass
+        else:
+            resp = requests.get(DATA_URL)
+            makedirs(DIR_NAME, exist_ok = True)
+            with open(DATA_FNAME, 'w') as f:
+                f.write(resp.text)
+
+    def make_data():
+        fetch_and_save_data()
+        f = open(DATA_FNAME, 'r')
+        data = csv.reader(f)
+        data = list(data)
+        f.close()
+
+        return data
+
+
+    def foo_1():
+        records = make_data()
+        return(len(records))
+
+
+    def foo_2():
+        records = make_data()
+
+        d = dict(Counter(r['Arrest'] for r in records))
+        d['rate'] = round(100 * d['true'] / len(records), 1)
+        return d
+
+
+
+
+
+
+My answers
+----------
+
+You can download my original answers here: :download:`/code/answers/chicago_homicides.py`
+
+
+Warning: my code may seem pretty opaque at times, because I try to throw all the Python sugar in there:
+
+e.g.
+
+.. code-block:: python
+
+    d = dict(Counter(r['Arrest'] for r in records))
+    d['rate'] = round(100 * d['true'] / len(records), 1)
+
+
+As opposed to:
+
+.. code-block:: python
+
+    d = {'true': 0, 'false': 0}
+    for r in records:
+        is_arrest = r['Arrest']
+        d[is_arrest] += 1
+
+    pct = 100 *  d['true'] / len(records)
+    d['rate'] = round(pct, 1)
+
+
+Am in the process of re-writing things...
+
+
+.. literalinclude:: /code/answers/chicago_homicides.py
+
+

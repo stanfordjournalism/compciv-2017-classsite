@@ -8,10 +8,16 @@ Python
 .. toctree::
    :maxdepth: 1
 
+   /guide/exercises/python/list-dict-checklist
    /guide/topics/python-standard-library/csv
+   /guide/topics/python-nonstandard-libraries/twython
    /guide/topics/python-nonstandard-libraries/pillow
-   /guide/topics/python-nonstandard-libraries/beautifulsoup
    /guide/exercises/python/hello-data-serialization
+   /guide/topics/python-nonstandard-libraries/beautifulsoup
+   /guide/topics/aws/intro-to-aws-boto3
+
+..   .. /guide/exercises/python/hello-data-serialization
+..   .. /guide/exercises/python/mapzen-geocoder
 
 
 Command-line Articles

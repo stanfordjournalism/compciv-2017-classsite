@@ -1,8 +1,304 @@
-*********************************************************
-Day 14: Thursday, February 23, 2017 - Geospatial concepts
-*********************************************************
+***************************************************
+Day 14: Thursday, February 23, 2017 - Face the APIs
+***************************************************
 
-Note: highly dependent on state of geopandas and condas by this time...
+OK, one more day of fun-with-JSON, and downloading, opening, reading, closing files. But now we'll do it with Amazon APIs.
+
+
+Pop Quizzes about Faces
+=======================
+
+Quiz directions:
+
+- Take 2 pieces of paper (any size).
+- Draw your best representation of the male and female human face, (one for each sheet of paper).
+- At the very bottom of each sheet, write your SUN ID. And label the faces, M and F.
+
+
+You were supposed to have read the following articles (or ones similar to them) relating to human/computational face recognition:
+
+- "HP computers are racist" https://www.youtube.com/watch?v=t4DT3tQqgRM
+- Are Face-Detection Cameras Racist: http://content.time.com/time/business/article/0,8599,1954643-1,00.html
+- HP Responds to Claim of 'Racist' Webcams http://www.pcmag.com/article2/0,2817,2357429,00.asp
+- http://www.news.com.au/travel/travel-updates/an-error-in-passport-renewal-software-creates-really-awkward-moment/news-story/8a2805422447af2d4c1bcd8793ffccb5
+- Asian man's passport photo is rejected because facial recognition software insists his 'eyes are CLOSED' and therefore 'does not meet the criteria' http://www.dailymail.co.uk/news/article-4007714/New-Zealand-passport-gate-s-awkward-reason-failing-recognise-Asian-man-s-face.html
+
+
+And going beyond racism, and thinking about what a face is, a human face, or what it is to be human:
+
+- Face-Blind http://www.newyorker.com/magazine/2010/08/30/face-blind
+- Man who Mistook His Wife for a Hat: http://www.odysseyeditions.com/EBooks/Oliver-Sacks/The-Man-Who-Mistook-His-Wife-for-a-Hat/Excerpt
+- Bring On This Facial Recognition CAPTCHA Already https://motherboard.vice.com/en_us/article/bring-on-this-facial-recognition-captcha-already
+- Google reCAPTCHA https://www.google.com/recaptcha/intro/
+- reCAPTCHA demo: https://www.google.com/recaptcha/api2/demo
+- Why Facebook is beating the FBI at facial recognition
+ http://www.theverge.com/2014/7/7/5878069/why-facebook-is-beating-the-fbi-at-facial-recognition
+
+AWS, Access, and APIs
+=====================
+
+Today, we'll go over how to log into to Amazon Web Services and test out a few of the front-facing APIs, including:
+
+- Polly: https://aws.amazon.com/polly/
+- Rekognition: https://aws.amazon.com/rekognition/
+- SNS: https://boto3.readthedocs.io/en/latest/reference/services/sns.html
+
+
+I should be emailing you all in class with your keys/authentication, and we'll walk through the process of logging in, making calls to the AWS API, and just generally playing around. It is yet another example of dealing with serialized/deserialization of data, and tediously figuring out what data we want, and how, nevermind doing something useful with it.
+
+
+'D' is for data, deserialization, and death
+===========================================
+
+Bummed that all we've done is download/open/close/read text files? I'm not going to argue that working with files is fun. In fact, it's one of the most painful things of any project, but exactly the kind of boring thing that a computer is perfectly suited for.
+
+But the bigger questions are: Why files? Why text? Why 1 and 0 and True and False and other simple values?
+
+The immediate answer is: because that's our best interfaces with computers, which otherwise think in 1s and 0s. If your goal in computational journalism is to find and expose and stop corruption/evil/inequity, then you will have to deal with the reality that those aren't self-evident when the information (the data, or what have you) is fundamentally just 1s and 0s.
+
+The related question that we take for granted: Why do we write? Not just code, but anything? Why can't our societies' laws and traditions be communicated through oral tradition? Why isn't the beauty and power of Shakespeare's works as it was performed centuries ago enough of a contribution to human civilization? Obviously, because in-person experiences and words being shouted out don't *persist*. They aren't *portable* or *sharable*, and when they are, they don't usually keep their integrity.
+
+It's not *wrong* to see writing as merely the ability to make dark marks on cave walls/parchment/paper. Of course there's more to it than that, if you know how to write, and you've ever committed your experiences to paper, and then had the experience of someone having their own interpretation
+
+
+
+
+Caching
+=======
+
+Tangential reading: I realize I keep saying the word "cache" and will increasingly do so as we deal with remote data sources. Knowing that "cache invalidation" is one of computer science's hard problems probably isn't the most practical bit of insight. So here's a nice article from Wired explaining how cache design/implementation has similar concerns as properly organizing your closet:
+
+https://www.wired.com/2016/04/computer-science-reveals-exactly-organize-closet/
+
+For the purposes of this class and its assignments, when I talk about creating a "cache"
+
+
+
+About the project
+=================
+
+If you're worried about the projects, don't be. They're just a way to do your own thing with what you've learned. It should feel easier and more interesting -- it's generally much easier to program when you know what you want to accomplish.
+
+
+Another thing that should ease the stress: you only have to program the tasks and features that you know exactly how to do.
+
+So for most people, I just assume this includes:
+
+- Sentiment analysis.
+- Natural language processing.
+- Creating structured data from unstructured text.
+- Extracting meaning from binary data, e.g. converting handwritten/photocopied text to actual text values.
+- Non-supervised machine learning. Or any machine learning,r eally.
+- Statistical learning, bayes analysis, or, really, any stats beyond calculating a percentage.
+- Detection of fake news.
+- Parallel/asynchronous/distributed programming.
+- Mediocre-level error handling.
+- Managing datasets too big to store on your computer.
+- Pretty much all of web design/development, other than understanding that HTMl is just a text format.
+
+Things that you either know how to do, or, just as good, know are completely possible for you to figure out *and* do:
+
+- How to use the Tab key, because your brain is not meant to be wasted on preventing typos or memorizing arcane filenames.
+- How to use iPython, and its interactive help features (such as help())
+- How to use the type() function
+- Writing code as if you're going to spend 10x more time reading/editing than writing it.
+- How to use a function to wrap up a block of code, like variables wrap up hard-to-express values.
+- There's no such thing as "close enough" when it comes to capitalization, punctuation, spelling, and the quoting of values.
+- How to visit a URL in your browser or in a program
+- How to describe what you want to find in text as a pattern (i.e. regular expressions)
+- How to open a file
+- How to read a file's contents
+- How to make new folders and files.
+- How to count things in a collection
+- How to turn raw text into data structures using Python's libraries
+- How to filter/sort/select data.
+- How to find and read documentation for libraries and APIs.
+- How to extract data from a dictionary or list.
+- How to use a for-loop to do the same task, over and over.
+- How to define branches/alternative routes of behavior with conditional statements.
+- Where to find in an error message the exact line and type of problem.
+- How to use a text editor, including saving and opening of files.
+- How to run a program.
+- How to see if a file by a filename
+
+
+Prospective projects:
+
+- A bot
+- Likely a second bot (as a variation)
+- A web application
+
+
+Sorry, bottleneck is thinking of easiest route for "publishing" these projects, i.e. via your own remote server. Also, still debating on whether a web application should actually deliver web pages (i.e. requiring you to learn some HTML and care about design). Example user-facing/friendly web-project (Flask, Python) from previous years.
+
+Don't focus on the design or interface as much as the story that is being told, more specifically, the filtering of facts from the raw data, and which facts and angles have been prioritized. Part/much of journalism is being able to take the same facts that have been covered elsewhere and still be confident
+
+
+
+Inmate deaths in California by Reade Levinson:
+
+- `Heroku deployment <https://rocky-headland-64655.herokuapp.com>`_
+- `Github repo <https://github.com/readelev/final-app>`_
+- `Reade's eleviator pitch <https://github.com/readelev/final-app/blob/master/READEME.md>`_
+
+Single-page projects by Saurabh Datar:
+
+- How many eviction notices near you?
+    + site: http://ssdatar.github.io/evictions-sf/
+    + data source: https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5/data
+    + related story: http://peninsulapress.com/2016/07/11/san-francisco-evictions-data-analysis/
+
+- Crime in India
+    + Site: https://crime-in-india.github.io/
+    + Source repo for app: https://github.com/crime-in-india/crime-in-india.github.io/
+    + Source repo for the raw data, including turning PDFs into CSV: https://github.com/crime-in-india/raw-data/tree/master/raw-pdfs
+
+
+The best how-to-build-a-news-app tutorial:
+
+
+
+
+Don't ask what people want, ask what people do
+----------------------------------------------
+
+Cue possibly-apocryphal Henry Ford quote, “If I had asked people what they wanted, they would have said faster horses.”
+
+https://hbr.org/2011/08/henry-ford-never-said-the-fast
+
+
+If you're new to programming, and even if you're not, you can just assume you're the person thinking of
+
+
+
+Thinking about bots
+===================
+
+Next week, we'll spend our time making and deploying bots. It will happen in 4 phases, roughly in this order:
+
+1. Finding time-or-location-sensitive data sources to draw from, e.g. the daily temperature, USGS earthquake detection, Chicago shootings and homicides, officer-involved shootings, edits made to a Wikipedia page, federally licensed gun dealers, stock prices, city pay roll, activity in the latest Reddit threads, the latest Congressional votes, the members of Congress who represent a given locale, campaign finance contributions, latest filed patents, the latest by President Donald Trump, the audio/video feed of what's airing on cable news right now, Nicolas Cage's filmography.
+
+2. Writing/designing the stories that the bot tells: what does the bot say about the data, i.e. make it relevant to the bot's users/readers, i.e. how does it filter/aggregate/summarize the data, put it in context, and adapt the story based on hypothetical input (i.e. arguments to a function) given to the bot? e.g. today's temperature described relative to yesterday's, or to a rolling average over the past couple of decades, the homicide/shooting nearest a given location, a frequency count/density analysis of crime at a given location, a Google Street View of the officer-involved-shooting near you, the most popular/recent Reddit threads in all city-related subreddits, whether or not a popular image on Reddit has been submitted before, and by whom, a list of everyone who has favorited/retweeted your tweets/facebook posts today, that same list sorted in descending order of the user's popularity, a video stream showing the 30 seconds of CNN/Fox News/MSNBC broadcast prior to @realDonaldTrump's tweet, a text transcript of that video stream with proper nouns and other entities extracted, a list of NYT stories today that have nothing to do with Trump, a list of NYT stories today most likely to be seen and read by Trump, a Facebook "On this Day"-like notification, except based on events in Nicolas Cage's life.
+
+3. The bot's means of transmission, e.g. Tweet, SMS, web page, fax.
+
+4. The bot's trigger and inputs. What event makes the bot "say" something, and what information about that event does the bot accept as "arguments"? e.g. a regular time interval (every hour, or lunchtime every day), does the bot monitor a stream of data, e.g. Tweets for a specific word or phrase, edits on Wikipedia. Does the bot react to users, e.g. replying upon receiving a directed Tweet or email message, or when a user visits a URL endpoint in a web application. Or does the bot simply churn through a finite and deterministic source of data?
+
+4.5 Deploying the bot: if a bot is just a program that can run on a computer, can't we just run all of our bots on our own laptops? Sure. The concept of deployment, or the use of cloud servers, is just the complexity we tackle when we're tired of keeping our laptops on all day.
+
+Reading about bots
+------------------
+
+Read these examples/anecdotes/case studies over the weekend:
+
+The Best Bots
+^^^^^^^^^^^^^
+- The L.A. Times Quakebot: most people think of bots as something to serve users, or at least the abstract needs of said users. Quakebot was built to take over the boring and repetitive work of a reporter so that the reporter could do real work. And as is the nature of data and reproducible processes, Quakebot also produced content useful for LAT readers.
+
+    + Example QuakeBot-bylined story: http://www.latimes.com/local/lanow/la-me-earthquakesa-earthquake-39-quake-strikes-near-view-park-windsor-hills-calif-onvisi-story.html
+    + https://www.theatlantic.com/technology/archive/2014/03/how-a-california-earthquake-becomes-the-news-an-extremely-precise-timeline/284506/
+    + http://www.slate.com/blogs/future_tense/2014/03/17/quakebot_los_angeles_times_robot_journalist_writes_article_on_la_earthquake.html
+    + http://sanfrancisco.cbslocal.com/2015/05/29/usgs-mistakenly-reports-magnitude-5-1-earthquake-near-redding/
+
+- SCOTUS_Servo: https://twitter.com/scotus_servo - Life and death and the pursuit of happiness are directly impacted by how Justices interpret even just commas, nevermind words, or clauses. Same goes for what they write in opinions
+
+
+
+    - http://joshblackman.com/blog/2015/10/05/scotus-now-tracks-changes-to-revised-opinions-and-combats-link-rot/
+    - https://gigaom.com/2014/06/12/clever-piece-of-code-exposes-hidden-changes-to-supreme-court-opinions/
+    - Example catch: https://twitter.com/SCOTUS_servo/status/476118183473319936
+    - Tweets Track Secret Edits to SCOTUS Opinions (headlines always focusing on the delivery vehicle/tech, and not on the idea):  http://www.lawsitesblog.com/2014/06/tweets-track-secret-edits-scotus-opinions.html
+    -
+- @Politwoops: One of the most well-known and beloved bots. Also notable for being an example of how an API is defined by a company's priorities and values.
+
+    + https://projects.propublica.org/politwoops/
+    + http://www.theverge.com/2015/8/24/9196969/twitter-shuts-down-politwoops-diplotwoops
+    + https://www.buzzfeed.com/alexkantrowitz/twitters-politwoops-shutdown-explanation-doesnt-add-up
+    + Source code: https://github.com/propublica/politwoops
+    + Twitter API for status deletion notices, https://dev.twitter.com/streaming/overview/messages-types#status_deletion_notices_delete
+
+
+- NewsDiffs http://newsdiffs.org/
+
+    + Taking the Stealth Out of Editing https://www.nytimes.com/2016/09/25/public-editor/liz-spayd-new-york-times-public-editor.html
+    + Insider’s View of Changes, From Outside http://www.nytimes.com/2012/07/01/opinion/sunday/article-changes-are-shown-in-a-tool-created-by-outsiders.html
+
+- The botmaker who sees through the Internet https://www.bostonglobe.com/ideas/2014/01/24/the-botmaker-who-sees-through-internet/V7Qn7HU8TPPl7MSM2TvbsJ/story.html
+
+- IFTTT: bots aren't just for programmers. Create a free IFTTT account and play around with all the possible APis and combinations. It's point-and-click, it reveals endpoints you might not have thought of before, and the trigger part "just works"
+
+    + http://lifehacker.com/the-best-ifttt-recipes-to-make-the-most-of-your-vacatio-1778763165
+    + Ask HN: What's the most creative use of IFTTT you've seen? https://news.ycombinator.com/item?id=5755879
+
+- Sam Lavigne and Fletcher Bach's collection of news/performance-art bots/scripts. Some of them might not fall under the usual definition of "bot", but only inasmuch as a bot is really no different from any other automated process of mundane steps.
+
+    + Auto-generated supercuts of CPSAN videos: https://twitter.com/cspanfive
+    + The Bot That Automatically Faxes Prisons Their Shitty Yelp Reviews  https://motherboard.vice.com/en_us/article/the-bot-that-automatically-faxes-prisons-their-shitty-yelp-reviews
+    + Street Views of interesting political addresses http://antiboredom.github.io/streetviews/
+    + Online Shopping Center (shopping via EEG) http://lav.io/shopping_center/
+    + Transform any text to a patent application
+
+Bots that have a beginning and end and/or a determined path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- @everyword, One Man's Quest to Tweet Every Word in the English Language: http://gawker.com/5854314/one-mans-quest-to-tweet-every-word-in-the-english-language
+- @fuckeveryword, @BenghaziWord: http://www.slate.com/blogs/future_tense/2015/12/29/thinkpiece_bot_magic_realism_bot_and_other_great_2015_twitter_bots.html
+- A Bookshop Is Tweeting "Philosopher’s Stone" To Piers Morgan After He Said He’d Never Read A Word Of Harry Potter https://www.buzzfeed.com/ikrd/a-bookshop-is-tweeting-the-entire-harry-potter-book
+- @momarobot https://twitter.com/momarobot
+
+Bots that react to user (i.e. external) input/activation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Twitter taught Microsoft’s AI chatbot to be a racist asshole in less than a day: http://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist
+- Make Hitler Happy: The Beginning of Mein Kampf, as Told by Coca-Cola: http://gawker.com/make-hitler-happy-the-beginning-of-mein-kampf-as-told-1683573587
+- @PrimitivePic https://twitter.com/primitivepic?lang=en
+- Which are some of the most interesting Slack bots? https://www.quora.com/Which-are-some-of-the-most-interesting-Slack-bots
+- The internet’s alt-right are mistakenly arguing with a bot http://www.theverge.com/2016/10/7/13202794/arguetron-twitter-bot-alt-right-internet-bigots-4chan-sarah-nyberg
+- On Twitter, a Battle Among Political Bot https://www.nytimes.com/2016/12/14/arts/on-twitter-a-battle-among-political-bots.html
+
+Bots that monitor a stream of data, or subscribe to a source of "push notifications"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- NYT Anonymous: https://twitter.com/nytanon
+- Edits to Wikipedia pages on Bell, Garner, Diallo traced to 1 Police Plaza http://www.politico.com/states/new-york/city-hall/story/2015/03/edits-to-wikipedia-pages-on-bell-garner-diallo-traced-to-1-police-plaza-087652
+- With Twitter's Help, Watch Congress Edit Wikipedia
+ https://www.nytimes.com/2014/07/15/upshot/twitter-wikipedia-and-a-closer-eye-on-congress.html
+- FEC Itemizer - what political campaigns filed for today: https://projects.propublica.org/itemizer/
+- When Trump Tweets, This Bot Makes Money: http://www.npr.org/2017/02/04/513469456/when-trump-tweets-this-bot-makes-money
+- How I won 4 Twitter contests a day (every day for 9 months straight) http://www.hscott.net/twitter-contest-winning-as-a-service/
+- Reuters built a bot that can identify real news on Twitter http://www.popsci.com/artificial-intelligence-identify-real-news-on-twitter-facebook
+- Two news developers built a Twitter bot to tell you when the game is getting good
+ http://www.niemanlab.org/2014/03/one-shining-moment-alert-two-news-developers-built-a-twitter-bot-to-tell-you-when-the-game-is-getting-good/
+- The Year of the FactChecking Bot http://www.niemanlab.org/2016/12/the-year-of-the-fact-checking-bot/
+- AWS urges developers to scrub GitHub of secret keys https://www.itnews.com.au/news/aws-urges-developers-to-scrub-github-of-secret-keys-375785
+
+
+
+Scheduled bots
+^^^^^^^^^^^^^^
+
+- Google Bot: https://support.google.com/webmasters/answer/182072?hl=en
+
+Bots that just do their own things
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Darius Kazemi's Blindfolded Bot Shops for You http://www.core77.com/posts/23892/Darius-Kazemis-Blindfolded-Bot-Shops-for-You
+- @twoheadlines https://twitter.com/twoheadlines
+- A bot crawled thousands of studies looking for simple math errors. The results are concerning.
+ http://www.vox.com/science-and-health/2016/9/30/13077658/statcheck-psychology-replication
+
+
+HOW R UR HACKING SKILLZ?
+========================
+
+So where should your confidence with code be?
+
+Consider this program below. I didn't add any comments for documentation but generally tried to name things as I normally would:
+
+
+
+
+Here's an uncommented section of code:
 
 
 
