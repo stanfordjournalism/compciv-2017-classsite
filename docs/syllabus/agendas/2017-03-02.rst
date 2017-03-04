@@ -1,17 +1,117 @@
-*************************************************
-Day 16: Thursday, March 2, 2017 - Real-world data
-*************************************************
+**************************************************
+Day 16: Thursday, March 2, 2017 - Purely twit bots
+**************************************************
+
+Note: many people are gone for NICAR. I'm still behind in grading homework. Keep working on the assignments assigned last time (Due on March 7, 2017):
+
+- :doc:`/syllabus/assignments/homework/local-quake-bot`
+- :doc:`/syllabus/assignments/homework/nyt-sans-trump`
+- :doc:`/syllabus/assignments/homework/bot-brainstorm`
 
 
-The 2 hard problems in computational journalism
-===============================================
+Twitter fun
+===========
+
+I've fleshed out the guides on how to use Twitter and Python.
+
+All together here (but still unfinished):
+
+:doc:`/guide/topics/python-nonstandard-libraries/twython`
+
+Here are the finished chunks that you can (hopefully) follow:
+
+- :doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-app-auth`
+
+- :doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-api-basics`
+
+- :doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-simple-grammar-corrector`
+
+- :doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-simple-markov-bot`
+
+Still more (too much) detail to come. Also, I haven't written a warning about why you shouldn't use Twitter. But here's a nice start:
+
+`How One Stupid Tweet Blew Up Justine Sacco’s Life: https://www.nytimes.com/2015/02/15/magazine/how-one-stupid-tweet-ruined-justine-saccos-life.html`
 
 
-Names, taxonomy, classification
--------------------------------
 
 
-Cache invalidation
-------------------
+Thoughts about bots
+===================
+
+In particular, I hope you spend a good amount of time thinking of what's possible for bots. For the purposes of this class, your best bet is to write programs that fetch, parse, and then filter the data in such a way that a question can be answered.
+
+The hard part at this point is:
+
+- Knowing which datasets exist
+- Knowing which questions are worth asking
+- Knowing which questions are possible for a computer to answer.
+
+
+Dataset and API sources
+-----------------------
+
+I'll have a better list later, but here's a start:
+
+For getting massive ammounts of real-time user-created content and messages, there are the Twitter and Reddit APIs:
+
+- Twitter (via Twython) :doc:`/guide/topics/python-nonstandard-libraries/twython`
+- Reddit's API (haven't written up docs yet): https://www.reddit.com/dev/api/
+
+For media content, the New York Times has probably the most complete API in terms of data relating to what they've published: https://developer.nytimes.com/
+
+The OpenDataNetwork portal is by far the best way to find datasets produced by local governments: https://www.opendatanetwork.com
+
+https://www.opendatanetwork.com/
+
+
+And here's a curated list of very large public datasets -- some/most of them are probably too difficult to grok in a week, but are worth having in mind for other projects you might have:
+
+http://cjlab.stanford.edu/2015/09/30/lab-launch-and-data-sets/
+
+And then for political data, start (and/or end) here:
+
+- https://www.govtrack.us/
+- https://www.propublica.org/nerds/item/a-new-way-to-keep-an-eye-on-who-represents-you-in-congress
+- https://api.open.fec.gov/developers/
+
+Some one-off data/scraping exercises from a previous class:
+
+https://github.com/stanfordjournalism/search-script-scrape
+
+
+A language challenge
+--------------------
+
+What's an example of filtering a big dataset to answer an easy question?
+
+
+A question posed to me by a recently arrived Stanford PhD in engineering:
+
+    Stanford has a high number of foreign-born engineers among its PhDs and faculty. If each Stanford affiliate has their own webpage describing who their background, how hard would it be to write a bot that scraped these pages, then parsed the text of these webpages to figure out if the Stanford PhD/faculty member was foreign-born and/or spoke English as a second-language.
+
+
+Think on it...
+
+
+If your guess was that just finding the webpages would be hard -- that's partly the case. Each department has their own content management system. But primarily, the challenge would be in discerning "foreign-born" from unstructured plaintext English (after you've successfully scraped the HTML). There'd be some obvious phrases ("born in Vietnam"), but you'd likely have to resort to some natural language processing with a library like https://spacy.io/.
+
+This is an example of a fairly straightforward question: is this Stanford affiliate foreign-born?
+
+But answering the question **as a computer** can be quite difficult.
+
+So here's one way to think about the problem:
+
+- How do you tell if someone is foreign-born after meeting and talking to them?
+- How do you tell if someone is foreign-born if chatting by phone?
+- If all you have is a resumé, what are some signs?
+
+And what features do all resumés share? And do any of these common features correlate to where someone was born?
+
+
+
+
+
+
+
 
 

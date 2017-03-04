@@ -98,12 +98,11 @@ Expected result:
 2. Find the number of tweets post-Election Day
 ----------------------------------------------
 
-Election 2016 was on November 8, 2016, i.e. ``'2016-11-08'
+Election 2016 was on November 8, 2016, i.e. ``'2016-11-08'``
 
 Instead of just returning a count, return a dictionary with a single item, in which the key is the screen name of ``'realdonaldtrump'``, and the value is the number of tweets that match the criteria of post-Election day.
 
-Yes, I could have you return a count, but just do this for the exercise of creating a dictinoary.
-
+Yes, I could have you return a count, but just do this for the exercise of creating a dictionary.
 
 
 Expected result:

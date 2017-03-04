@@ -1,14 +1,187 @@
-******************************************************
-Day 15: Tuesday, February 28, 2017 - Automation design
-******************************************************
+********************************************************
+Day 15: Tuesday, February 28, 2017 - Thinking about Bots
+********************************************************
 
 
-What makes a bot?
-=================
+Project Bots
+============
+
+The project portion of this class will be:
+
+- Make 2 bots by Thursday, March 23.
+
+These bots can connect to a service like Twitter or Reddit to publish (i.e. another API). Or, basically be a "web application". They don't really have to run online if you don't want the hassle...usually you want to see them up-and-running after all the trouble you've gone through -- we'll worry about those details in the last week.
+
+
+Assignments
+===========
+
+
+The following assignments are warmups to making bots:
 
 
 
-Tracking state
-==============
+- :doc:`/syllabus/assignments/homework/local-quake-bot`
+- :doc:`/syllabus/assignments/homework/nyt-sans-trump`
+- :doc:`/syllabus/assignments/homework/bot-brainstorm`
 
-Not sure how we're going to do this if we've been avoiding OOP until now...
+
+
+If you didn't get the email on how to log in to AWS (with credentials), let me know. Otherwise, here is the guide:
+
+- :doc:`/guide/topics/aws/intro-to-aws-boto3`
+
+
+
+
+
+Why Bot?
+========
+
+I use "bot" as a general term for "something that does boring work for us".
+
+One of the best examples is Quakebot from the LA Times:
+
+- How to Break News While You Sleep: https://source.opennews.org/articles/how-break-news-while-you-sleep/
+- Quakebots and Pageview Quotas: Bot or Be Botted? https://source.opennews.org/articles/bot-or-be-botted/
+- How a California Earthquake Becomes the News: An Extremely Precise Timeline https://www.theatlantic.com/technology/archive/2014/03/how-a-california-earthquake-becomes-the-news-an-extremely-precise-timeline/284506/
+
+
+In "How to Break News While You Sleep", Ken Schwenke describes how he wrote a program to do what he had to do as a reporter: read an earthquake alert email, and turn it into a story.
+
+This is what the earthquake email looks like:
+
+
+.. code-block:: text
+
+                    == PRELIMINARY EARTHQUAKE REPORT ==
+
+
+
+    Region:                           GREATER LOS ANGELES AREA, CALIFORNIA
+    Geographic coordinates:           34.133N, 118.487W
+    Magnitude:                        4.7
+    Depth:                            8 km
+    Universal Time (UTC):             17 Mar 2014  13:25:36
+    Time near the Epicenter:          17 Mar 2014  06:25:37
+    Local standard time in your area: 17 Mar 2014  05:25:36
+
+    Location with respect to nearby cities:
+    9 km (5 mi) NNW of Westwood, California
+    10 km (6 mi) NW of Beverly Hills, California
+    12 km (7 mi) W of Universal City, California
+    12 km (8 mi) N of Santa Monica, California
+    562 km (348 mi) SSE of Sacramento, California
+
+
+    ADDITIONAL EARTHQUAKE PARAMETERS
+    ________________________________
+    event ID                     :  ci 15476961
+
+
+
+The goal is to make a story faster than everyone else. But that doesn't mean you have to make a robot that writes the story, beginning to end. Let the robot do as many of the tedious steps needed before a story is produced, and handoff something for a human editor to put the finishing touches on:
+
+
+Here is an example of what the Quakebot produces, with emphasis showing the parts that are extracted literally from the text:
+
+
+
+    Headline:
+    Earthquake: **4.7** quake strikes near **Westwood, California**
+
+    Body:
+
+    A magnitude **4.7** earthquake was reported **early Monday morning at 5:25 AM**, **5 miles northwest** from **Westwood, California**, according to the U.S. Geological Survey.
+
+    In the last 10 days, there have been no earthquakes of magnitude 3.0 or greater centered nearby.
+
+
+    Notes to editor:
+
+    This is a robopost from your friendly earthquake robot. Please copyedit & publish the story.
+
+    The official USGS page for this earthquake event can be found here:
+
+    http://earthquake.usgs.gov/earthquakes/eventpage/ci15476961
+
+    If the city referenced in the headline is relatively unknown, but the earthquake occurred close to another, larger city, please alter the headline and body text to put that information first.
+
+    I am currently not smart enough to make these decisions on my own, and rely on the help of intelligent humans such as yourselves.
+
+    Thanks! Quakebot.
+
+
+
+Don't ask what people want, ask what people do
+----------------------------------------------
+
+
+Cue possibly-apocryphal Henry Ford quote, “If I had asked people what they wanted, they would have said faster horses.”
+
+https://hbr.org/2011/08/henry-ford-never-said-the-fast
+
+
+In the Quakebot example, focus on what the journalist wants: to produce an accurate story before anyone else.
+
+And then, look at what the Quakebot program actually *does*: the menial steps needed to convert an email to something that can be quickly turned into a story:
+
+
+- Checking email for USGS alerts
+- Extracting the important parts
+- Pre-write the headline and body
+- Email this info to the editor on duty
+
+
+
+Love sites
+^^^^^^^^^^
+
+What people want is to find **love** ("true love", or the various other kinds of love). But how do you write a program to solve that problem? What is love? As a great `human once reflected <https://www.youtube.com/watch?v=HEXWRTEbj1I>`_:
+
+    I give you my love, but you don't care.
+
+    So what is right? And what is wrong? Gimme a sign.
+
+
+Tough problem, for human or bot. But entrepreneurial programmers and engineers have been able to make a fortune by asking: **What do people do for love""?
+
+
+For OKCupid, the creators probably focused on this aspect of what *people do* for love:
+
+https://theblog.okcupid.com/we-experiment-on-human-beings-5dd9fe280cd5#.3wlll6i8x
+
+- Look around until you find attractive person
+- Find out if person is single
+- Ask that person dozens of questions to determine their politics, favorite foods, hobbies, love-of-life, etc.
+- Consider whether that person's personality and interests match your own.
+- Look around for another person.
+
+For Tinder, they might have seen what *people do* as:
+
+https://www.buzzfeed.com/alexkantrowitz/cracking-the-tinder-code-love-in-the-age-of-algorithms?utm_term=.tcoKX8K6L#.opAeRQeWa
+
+- Go to bar
+- Find attractive person
+- Ask if attractive person is single
+- Hope/pray they find you attractive
+- Use pick-up line
+- Find another bar
+
+OK, so both services differ in what the "is the other person a match" phase. But crucially, they, and other dating services, solve these real-world time bottlenecks:
+
+- Going to a bar or other place with people.
+- Finding someone you're interested in.
+- Finding out if said person is single and/or interested in any kind of relationship.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@
 .rst-content img{
     border: thin solid #555;
     box-shadow: 10px 10px 5px #bbbbbb;
+    margin-bottom: 20px;
 }
 
 

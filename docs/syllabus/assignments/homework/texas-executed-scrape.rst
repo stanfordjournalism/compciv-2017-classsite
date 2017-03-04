@@ -286,4 +286,27 @@ Please test this out for yourself and make sure you know what type of objects ar
 (because manually constructing URLs is menial work that should be delegated to a library!)
 
 
+Answers
+=======
+
+
+who-when.py
+-----------
+
+..  literalinclude:: /code/answers/python/deathpenalty/who-when.py
+
+
+young-old.py
+------------
+
+..  literalinclude:: /code/answers/python/deathpenalty/young-old.py
+
+
+religious-last-words.py
+-----------------------
+
+..  literalinclude:: /code/answers/python/deathpenalty/religious-last-words.py
+
+
+
 

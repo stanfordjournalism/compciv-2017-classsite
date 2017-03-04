@@ -224,3 +224,11 @@ https://analytics.usa.gov/data/live/top-traffic-sources-30-days.csv
 As JSON:
 
 https://analytics.usa.gov/data/live/top-traffic-sources-30-days.json
+
+
+
+Answers
+=======
+
+
+..  literalinclude:: /code/answers/python/usa_gov_analytics_nicer.py

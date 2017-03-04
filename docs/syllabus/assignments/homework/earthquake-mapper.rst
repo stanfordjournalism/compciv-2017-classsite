@@ -7,6 +7,8 @@ Earthquake Mapper
 **Points:** 20
 
 
+
+
 Write a program that "creates" a world map showing the 5 biggest earthquakes (in terms of magnitude) in the last month.
 
 By "create", I mean, leverages the Google Static Maps API to create a specially-formatted URL that leads to an image file created on Google's servers. In other words, your program is a easy-to-use "wrapper" for the kind of confusing API from Google.
@@ -92,6 +94,7 @@ But this is all you need to grok:
 Basically, we delegate all of the work of making a parameterized URL to the **Requests** library. We aren't using Requests to download from a URL, but to prepare a URL string that we can use later.
 
 
+.. _quick primer on Google Static Maps API:
 
 About the Google Static Maps API
 ================================
@@ -291,4 +294,10 @@ You can start with this skeleton script:
             print(url)
 
 
+
+
+Solutions
+=========
+
+.. literalinclude:: /code/answers/python/quake-mapper.py
 

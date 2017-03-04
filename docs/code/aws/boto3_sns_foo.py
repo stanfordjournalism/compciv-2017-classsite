@@ -10,9 +10,11 @@ import boto3
 
 MSG_TEMPLATE = "{msg_no}. You're a poop head. ({msg_no}/{msg_count})"
 
-def send_text_foo(phone_number, message_count):
+def send_text_poop(phone_number, message_count):
+
+    sns = boto3.client('sns')
+
     for i in range(message_count):
         msg = MSG_TEMPLATE.format(msg_no=i+1, msg_count=message_count)
         print("Sending:", msg)
-        sns = boto3.client('sns')
         sns.publish(PhoneNumber=phone_number, Message=msg)

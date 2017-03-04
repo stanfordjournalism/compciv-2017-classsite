@@ -4,7 +4,12 @@ Introduction to AWS with Python and boto3
 
 Amazon Web Services, or **AWS** for short, is a set of cloud APIs and computational services offered by Amazon. The services range from general server hosting (Elastic Compute Cloud, i.e. EC2) to text messaging services (Simple Notification Service) to face detection APIs (Rekognition)
 
-https://aws.amazon.com/
+
+.. contents::
+
+
+About this guide
+================
 
 For the purposes of this class, I will have emailed you a URL for logging in, as well as a **access key** and a **secret key**, and then a one-time password for the web console.
 
@@ -13,7 +18,7 @@ The `first part of this guide`_ is setting up your system so that your AWS keys 
 
 The `second part of this guide`_ will show you how to log into AWS via the web console, though there's not much reason to do that except to get a high-level view of what we're doing with the code.
 
-The `third part of this guide`_will run you through some Python examples (with boto3) on using the APIs.
+The `third part of this guide`_ will run you through some Python examples (with boto3) on using the APIs.
 
 
 The AWS services that are enabled for this class, so-far, are:
@@ -31,9 +36,6 @@ https://boto3.readthedocs.io/en/latest/reference/services/ses.html
 
 
 .. _first part of this guide:
-
-
-
 
 
 Installing the AWS tools
@@ -234,17 +236,18 @@ https://console.aws.amazon.com/
 API demos via the console
 -------------------------
 
-Rekognition face-detection demo:
+`Rekognition face-detection demo <https://console.aws.amazon.com/rekognition/home?#/face-detection
+>`_
 
-https://console.aws.amazon.com/rekognition/home?#/face-detection
 
 
 .. image:: images/rekog-trump-console.jpg
 
 
-Rekognition object/scene detection demo (detect labels):
+`Rekognition object/scene detection demo <https://console.aws.amazon.com/rekognition/home?region=us-east-1#/label-detection>_`:
 
-https://console.aws.amazon.com/rekognition/home?region=us-east-1#/label-detection
+
+(aka detect_labels)
 
 .. image:: images/rekog-trump-inaug-console.jpg
 
@@ -372,13 +375,13 @@ So AWS is a great service because Amazon itself uses AWS to run, well, Amazon.co
 
 In Python, whereas the general convention is to use **snake case**, i.e. lowercase and underscore for naming variables, most of the variables/argument names as referred to in boto3 are *capitalized* and *camel case*.
 
-In other words, ``PhoneNumber`` and ``Message``:
+In other words, the boto3 library expects arguments like these ``PhoneNumber`` and ``Message``:
 
 .. code-block:: python
 
     sns.publish(PhoneNumber='+15558675309', Message="hello")
 
-Instead of ``phone_number`` and ``message``:
+And **not** like these: ``phone_number`` and ``message``:
 
 .. code-block:: python
 
@@ -547,8 +550,8 @@ Examples of boto3 and Polly
 
 The general use-case of Polly is to send a text string and get the bytes of a MP3 or WAV file. For the most part, we'll want to write those bytes to disk, and then open up that file to listen to it.
 
-- Pricing: https://aws.amazon.com/sns/pricing/
-- Boto3 docs: https://boto3.readthedocs.io/en/latest/reference/services/sns.html
+- Pricing: https://aws.amazon.com/polly/pricing/
+- Boto3 docs: https://boto3.readthedocs.io/en/latest/reference/services/polly.html
 - Console demo: https://console.aws.amazon.com/polly/home/SynthesizeSpeech
 
 
@@ -746,7 +749,8 @@ In other words, this is just another application of the ``requests`` library, co
     resp = requests.get('http://stash.compciv.org/2017/obama.jpg')
     imgbytes = resp.content
 
-    rekresp = rek.detect_faces(Image={'Bytes': imgbytes}, Attributes=['ALL'])
+    rekresp = rek.detect_faces(Image={'Bytes': imgbytes},
+                               Attributes=['ALL'])
 
 
 

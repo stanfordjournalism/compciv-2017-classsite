@@ -305,3 +305,77 @@ For a more thorough exploration of the Spotify API (albeit from the Command Line
 The actual URL for the live endpoint of related-artists for Béyoncé can be found here:
 
 https://api.spotify.com/v1/artists/6vWDO969PvNqNYHIOW5v0m/related-artists
+
+
+Answers (Partial)
+=================
+
+
+I like to start off by writing a function that does the downloading and deserializing:
+
+.. code-block:: python
+
+    import json
+    from os import makedirs
+    from os.path import exists, join, basename
+    import requests
+
+
+    SRC_URL  = 'http://stash.compciv.org/2017/spotify-beyonce-related-artists.json'
+    DATA_DIR = 'data-files'
+    DATA_FNAME = join(DATA_DIR, basename(SRC_URL))
+
+    def bootstrap_data():
+        """ returns serialized object"""
+        if exists(DATA_FNAME):
+            rawjson = open(DATA_FNAME).read()
+        else:
+            r = requests.get(SRC_URL)
+            makedirs(DATA_DIR, exist_ok=True)
+            with open(DATA_FNAME, 'w') as f:
+                f.write(r.text)
+            rawjson = r.text
+        return json.loads(rawjson)
+
+
+
+The above script is a result of my desire for some organization. I only want to download the source data once. And I want that data file to be saved in a subdirectory:
+
+``data-files/spotify-beyonce-related-artists.json``
+
+
+However, you may not care about that. In any case, if you're going to use my code above, make sure you know what each line does, e.g. ``basename(SRC_URL)``.
+
+
+After you've created a ``bootstrap_data()`` function that does all the data grabbing/parsing work, each subsequent function that needs the data can just call ``bootstrap_data()``:
+
+
+.. code-block:: python
+
+
+  def foo_1():
+      """
+      Return a list of artist names, from the list of artists most related to Béyoncé, according to the Spotify API, sorted by popularity
+      """
+
+      data = bootstrap_data()
+      names = []
+      for a in data['artists']:
+          names.append(a['name'])
+
+      return names
+
+
+
+Or, if you prefer brevity:
+
+
+.. code-block:: python
+
+    def foo_1():
+      return [a['name'] for a in bootstrap_data()['artists']]
+
+
+
+
+

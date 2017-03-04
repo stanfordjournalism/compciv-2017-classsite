@@ -3,9 +3,46 @@ twython - Python wrapper for the Twitter API
 ********************************************
 
 
+A collection of guides and information on how to access the Twitter API using the Twython Python library. Assumes varying degrees of familiarity about what Twitter is, and programming in general...
+
+
+Assuming you have a Twitter account that you can tweet from via the web or your phone, the next step/leap is to access and run that Twitter account programmatically. We use the Python library, Twython, and jump through a bunch of hoops to set up a Twitter Application:
+
+:doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-app-auth`
+
+After we have Twython set up, now it's time to learn the basics of how to tweet and collect data using all the fun programming concepts we've learned so far, including: how to read a Python dictionary, how to use functions, and how to not freak out when seeing error messages.
+
+The following guide assumes you're relatively new to the data world of Twitter, and attempts to show how the Twython library connects to the documentation:
+
+:doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-api-basics`
+
+
+And applying the basics to making some simple bots (for now):
+
+Creating a bot that, searches for tweets and then based on hard-coded simplistic logic, reacts to each tweet.
+
+:doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-simple-grammar-corrector`
+
+
+Creating a bot that generates random content (from Twitter, or anywhere) based on a body of text:
+
+
+:doc:`/guide/topics/python-nonstandard-libraries/twython-guide/twitter-twython-simple-markov-bot`
+
+
+
+
+
+
+
 
 Getting started with Twitter and Twython
 ========================================
+
+.. warning:: TKTK
+
+    The rest of this page is just old stuff that needs to be reorganized and expanded upon
+
 
 Twython documentation: https://twython.readthedocs.io/en/latest/
 

@@ -8,6 +8,17 @@ Homework
 
 In general, homework assignments are due at **1:00 PM** on the day of the *next class*.
 
+
+.. rubric:: Due: 2017-03-07
+
+.. toctree::
+   :maxdepth: 1
+
+   /syllabus/assignments/homework/local-quake-bot
+   /syllabus/assignments/homework/nyt-sans-trump
+   /syllabus/assignments/homework/bot-brainstorm
+
+
 .. rubric:: Due: 2017-02-16
 
 .. toctree::
@@ -82,7 +93,4 @@ These take up the latter-half of the course. Whereas the homework assignments ar
 .. toctree::
    :maxdepth: 1
 
-   projects/scalable-visualization-builder
-   projects/data-janitorial-work
    projects/remote-bot
-   projects/web-application

@@ -80,6 +80,7 @@ Unfortunately, not all pages have the same structure. Some Last Statements are l
 
 .. code-block:: python
 
+
     from bs4 import BeautifulSoup
     from urllib.parse import urljoin
     import requests
@@ -96,7 +97,7 @@ Unfortunately, not all pages have the same structure. Some Last Statements are l
         return urljoin(SRC_URL, href)
 
     def has_religious_words(txtstr):
-        RELIGOUSWORDS = ['God', 'Lord', 'Savior', 'Soul', 'Allah', 'Prophet', 'Heaven', 'Hell']
+        RELIGIOUSWORDS = ['God', 'Lord', 'Savior', 'Soul', 'Allah', 'Prophet', 'Heaven', 'Hell']
         for word in RELIGIOUSWORDS:
             if word in txtstr:
                 return True
@@ -107,7 +108,7 @@ Unfortunately, not all pages have the same structure. Some Last Statements are l
         return False
 
     def fetch_inmate_rows():
-        html = requests.get(url).text
+        html = requests.get(SRC_URL).text
         soup = BeautifulSoup(html, 'lxml')
         inmate_rows = soup.find_all('tr')[1:]
         return inmate_rows
@@ -116,15 +117,13 @@ Unfortunately, not all pages have the same structure. Some Last Statements are l
 
     for row in fetch_inmate_rows():
         lastwords_url = extract_last_words_url(row)
+        cols = row.find_all('td')
         if 'no_last_statement' not in lastwords_url:
             # fetch page
             lastwordsresp = requests.get(lastwords_url)
             txt = lastwordsresp.text
             if has_religious_words(txt):
-                print(row['0'], row['1'], row[2], 'is religious:', lastwords_url)
-
-
-
+                print(cols[4].text, cols[3].text, 'is religious:', lastwords_url)
 
 
 
